@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Content = styled.div`
@@ -35,7 +34,7 @@ const ReadingTime = styled.h5`
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout>
+    <div>
       <SEO title="Blog" />
       <Content>
         <h1>Blog</h1>
@@ -64,7 +63,7 @@ const IndexPage = ({ data }) => {
             </div>
           ))}
       </Content>
-    </Layout>
+    </div>
   )
 }
 

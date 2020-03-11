@@ -1,6 +1,6 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import { Link } from "gatsby"
 import SEO from "../components/seo"
 import styled from "@emotion/styled"
 
@@ -19,20 +19,19 @@ const OuterContainer = styled.div`
 
 
 const AboutPage = () => (
-  <Layout>
+  <div>
     <SEO title="About" keywords={[`gatsby`, `application`, `react`]} />
     <OuterContainer>
         <Container>
         <h1>About Me</h1>
         <p><strong>Lars Behrenberg - Web Developer</strong></p>
 
-        <p>Currently working as a Freelancer in <a href="https://www.google.com/maps/place/Kyoto,+Japan/" target="_blank">Kyoto, Japan</a>.
+        <p>Currently working as a Freelancer in <a href="https://www.google.com/maps/place/Kyoto,+Japan/" target="_blank" rel="noopener noreferrer">Kyoto, Japan</a>.
             I build websites and applications using HTML, CSS, React, NodeJS, ExpressJS and MongoDB.</p>
 
-        <p>In my free time, I like to go on hikes, study Japanese, and work on my <a href="#projects">side
-                projects</a>.</p>
+        <p>In my free time, I like to go on hikes, study Japanese, and work on my <Link to="/projects">projects</Link>.</p>
 
-        <p>Check out <a href="https://blog.larsbehrenberg.com/" target="_blank">my blog</a> or <a href="mailto:me@larsbehrenberg.com">email me</a>.</p>
+        <p>Check out <Link to="/blog">my blog</Link> or <a href="mailto:me@larsbehrenberg.com">email me</a>.</p>
 
         <div>
           <ul>
@@ -46,7 +45,7 @@ const AboutPage = () => (
         </div>
         </Container>
     </OuterContainer>
-  </Layout>
+  </div>
 )
 
 export default AboutPage

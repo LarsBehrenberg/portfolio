@@ -1,6 +1,5 @@
 import React from "react"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "@emotion/styled"
 
@@ -19,21 +18,21 @@ const OuterContainer = styled.div`
 
 
 const ProjectsPage = () => (
-  <Layout>
+  <div>
     <SEO title="Projects" keywords={[`gatsby`, `application`, `react`]} />
     <OuterContainer>
         <Container>
         <h1>Projects</h1>
-        <p><strong>Here are my recent</strong></p>
+        <p><strong>I have recently built:</strong></p>
         <ul>
-          <li>Project 1</li>
-          <li>Project 2</li>
-          <li>Project 3</li>
+          <li><a href="https://tfbs.de" target="_blank" rel="noopener noreferrer">t.f.b.s - Telgte</a> | A small consulting company based in Telgte, Germany</li>
+          <li><a href="https://alexkerr.net" target="_blank" rel="noopener noreferrer">Alex Kerr</a> | A personal website of a Japanologist and Author</li>
+          <li><a href="https://chihirohori.com" target="_blank" rel="noopener noreferrer">Chihiro Hori</a> | A business website of a Nutrionist based in Japan</li>
         </ul>
         
         </Container>
     </OuterContainer>
-  </Layout>
+  </div>
 )
 
 export default ProjectsPage

@@ -10,10 +10,12 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
-import Header from "./header"
+import Header from "../components/header"
 import "./layout.css"
 
-import Particles from "./particles"
+import Transition from "../components/transition"
+
+import Particles from "../components/particles"
 
 const Content = styled.div`
   margin: 0 auto;
@@ -31,7 +33,7 @@ const Footer = styled.footer`
   justify-content: center;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -43,10 +45,13 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <div>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Content>
-          <main>{children}</main>
+        <Transition location = {location}>
+          {children}
+        </Transition>
+          {/* <main>{children}</main> */}
           <Footer>
             <p>
             © {new Date().getFullYear()} {data.site.siteMetadata.title} | Built with
@@ -55,8 +60,8 @@ const Layout = ({ children }) => (
             <GatsbyLink href="https://www.gatsbyjs.org">Gatsby</GatsbyLink>
           </Footer>
         </Content>
-        <Particles />
-      </>
+        <Particles/>
+      </div>
     )}
   />
 )

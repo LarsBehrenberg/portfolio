@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Content = styled.div`
@@ -49,7 +48,7 @@ const MarkdownContent = styled.div`
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
-    <Layout>
+    <div>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -61,7 +60,7 @@ export default ({ data }) => {
         </HeaderDate>
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </Content>
-    </Layout>
+    </div>
   )
 }
 

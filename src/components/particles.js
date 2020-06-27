@@ -78,7 +78,7 @@ const particlesParameters = {
         mode: 'grab',
       },
       onclick: {
-        enable: true,
+        enable: false,
         mode: 'repulse',
       },
       resize: true,

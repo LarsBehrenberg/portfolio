@@ -1,5 +1,5 @@
 code {
-  background-color: #fff;
+  background-color: #ffffff50;
 }
 
 body {
@@ -667,7 +667,7 @@ td:last-child {
 
 tt,
 code {
-  background-color: #fff;
+  background-color: #ffffff50;
   border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;

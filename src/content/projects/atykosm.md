@@ -1,6 +1,6 @@
 ---
 title: 'ATYKOSM | Photography'
-date: '2020-07-03'
+date: '2020-07-01'
 draft: false
 path: '/projects/atykosm'
 cover: ../assets/project-atykosm.jpg

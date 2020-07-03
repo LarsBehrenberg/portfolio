@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SEO from '../components/seo';
+import ProjectTable from '../components/project-table';
 import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
@@ -26,11 +27,11 @@ const ProjectWrapper = styled.div`
   }
   @media (min-width: 1200px) {
     max-width: 1100px;
-    margin: 2rem auto 1rem auto;
+    margin: 2rem auto 2rem auto;
   }
 `;
 
-const Wrapper = styled.a`
+const Wrapper = styled(Link)`
   margin-bottom: 2rem;
   position: relative;
   z-index: 10;
@@ -153,36 +154,39 @@ const Title = styled.h3`
   margin-top: 0.4rem;
 `;
 
-const Button = styled(Link)`
-  text-decoration: none;
+const Button = styled.p`
   border-bottom: 1px solid white;
   text-align: right;
+  margin: 0;
 `;
 
 const ProjectsPage = ({ data }) => {
-  const recentPosts = data.allMarkdownRemark.nodes;
+  const recentPosts = data.allMarkdownRemark.nodes.filter(
+    (node) => node.fileAbsolutePath.includes('projects') == true
+  );
+
+  const archivedPosts = data.allMarkdownRemark.nodes.filter(
+    (node) => node.fileAbsolutePath.includes('archive') == true
+  );
+
   return (
     <>
       <SEO title="Projects" keywords={[`gatsby`, `application`, `react`]} />
       <Container>
-        <h1>Recent Projects</h1>
+        <h1>Projects</h1>
+        <h2>Recent Projects</h2>
         <ProjectWrapper>
           {recentPosts.map(({ id, frontmatter }) => {
-            const { title, cover, path, linkToProject } = frontmatter;
+            const { title, cover, path } = frontmatter;
             return (
-              <Wrapper
-                key={id}
-                href={linkToProject}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image to={path}>
+              <Wrapper key={id} to={path}>
+                <Image>
                   <Img fluid={cover.childImageSharp.fluid} alt={title} />
                 </Image>
                 <StyledLink>
                   <Info>
                     <Title>{title}</Title>
-                    {path !== '' ? <Button to={path}>Read more</Button> : null}
+                    <Button>Read more</Button>
                   </Info>
                 </StyledLink>
               </Wrapper>
@@ -190,23 +194,8 @@ const ProjectsPage = ({ data }) => {
           })}
         </ProjectWrapper>
 
-        {/*<h2 style={{ textAlign: 'right' }}>Recent Applications</h2>
-        <ProjectWrapper>
-          {data.allFile.nodes.map(({ id, childImageSharp }) => (
-            <Wrapper>
-              <Image key={id}>
-                <Img fluid={childImageSharp.fluid} alt="something" />
-              </Image>
-              <Info>
-                <h3>Alex Kerr</h3>
-                <ButtonContainer>
-                  <Button>Live</Button>
-                  <Button>Code base</Button>
-                </ButtonContainer>
-              </Info>
-            </Wrapper>
-          ))}
-        </ProjectWrapper> */}
+        <h2>Archive</h2>
+        <ProjectTable posts={archivedPosts} />
       </Container>
     </>
   );
@@ -215,16 +204,17 @@ const ProjectsPage = ({ data }) => {
 export default ProjectsPage;
 
 export const data = graphql`
-  query Images {
+  query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        fileAbsolutePath: { regex: "/projects/" }
+        fileAbsolutePath: { regex: "/projects|archive/" }
         frontmatter: { draft: { eq: false } }
       }
     ) {
       nodes {
         id
+        fileAbsolutePath
         frontmatter {
           title
           date

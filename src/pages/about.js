@@ -16,12 +16,16 @@ const Container = styled.div`
 `;
 
 const Image = styled.div`
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
   float: right;
   margin: 0rem 0 0.5rem 1rem;
 
   border-radius: 0.4rem;
   img {
+    border-radius: 0.4rem;
+  }
+
+  .image {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
   }
   @media (max-width: 570px) {
@@ -31,21 +35,13 @@ const Image = styled.div`
   }
 `;
 
-const Header = styled.div`
+const IconContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  & > * {
-    margin-bottom: 1.45rem;
-  }
-
-  div {
-    display: flex;
-    flex-direction: row;
-    & a {
-      margin-left: 1em;
-    }
+  > * {
+    margin: 1em 0.3em 0.5em;
   }
 `;
 
@@ -53,10 +49,17 @@ const AboutPage = ({ data }) => (
   <div>
     <SEO title="About" keywords={[`gatsby`, `application`, `react`]} />
     <Container>
-      <Header>
-        <h1>About Me</h1>
-        <div>
-          <IconContext.Provider value={{ color: '#ffffff90', size: '1.7em' }}>
+      <h1>About Me</h1>
+      <Image>
+        <Img
+          fluid={data.file.childImageSharp.fluid}
+          alt=""
+          style={{ width: '300px', objectFit: 'cover' }}
+          className="image"
+        />
+
+        <IconContainer>
+          <IconContext.Provider value={{ color: '#ffffff90', size: '1.4em' }}>
             <a
               href="https://www.linkedin.com/in/lars-behrenberg/"
               target="_blank"
@@ -83,14 +86,7 @@ const AboutPage = ({ data }) => (
               <AiOutlineMail />
             </Link>
           </IconContext.Provider>
-        </div>
-      </Header>
-      <Image>
-        <Img
-          fluid={data.file.childImageSharp.fluid}
-          alt=""
-          style={{ width: '300px', objectFit: 'cover' }}
-        />
+        </IconContainer>
       </Image>
       <p>
         <strong>Lars Behrenberg - Web Developer</strong>

@@ -5,6 +5,10 @@ import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import styled from '@emotion/styled';
 
+import { IconContext } from 'react-icons';
+import { FaGithub, FaLinkedinIn, FaXing } from 'react-icons/fa';
+import { AiOutlineMail } from 'react-icons/ai';
+
 const Container = styled.div`
   margin: 0 auto;
   max-width: 1100px;
@@ -35,6 +39,14 @@ const Header = styled.div`
   & > * {
     margin-bottom: 1.45rem;
   }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    & a {
+      margin-left: 1em;
+    }
+  }
 `;
 
 const AboutPage = ({ data }) => (
@@ -44,7 +56,33 @@ const AboutPage = ({ data }) => (
       <Header>
         <h1>About Me</h1>
         <div>
-          <span>Icon here</span>
+          <IconContext.Provider value={{ color: '#ffffff90', size: '1.7em' }}>
+            <a
+              href="https://www.linkedin.com/in/lars-behrenberg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              href="https://www.xing.com/profile/Lars_Behrenberg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaXing />
+            </a>
+            <a
+              href="https://github.com/LarsBehrenberg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </a>
+
+            <Link to="/contact">
+              <AiOutlineMail />
+            </Link>
+          </IconContext.Provider>
         </div>
       </Header>
       <Image>

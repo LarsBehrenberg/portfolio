@@ -133,7 +133,7 @@ const Image = styled.div`
 
 const Info = styled.div`
   color: #f0f0f0;
-  margin: 0 1.25rem 1.25rem 1rem;
+  margin: 0 1.25rem 0.75rem 1rem;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -207,7 +207,6 @@ const ProjectsPage = ({ data }) => {
             </Wrapper>
           ))}
         </ProjectWrapper> */}
-        <h2 style={{ textAlign: 'right', marginTop: '3rem' }}>Archive</h2>
       </Container>
     </>
   );

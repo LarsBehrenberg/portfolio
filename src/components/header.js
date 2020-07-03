@@ -83,13 +83,7 @@ const Header = ({ siteTitle }) => (
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/blog">Blog</NavLink>
-        <GitHubLink
-          href="https://github.com/larsbehrenberg"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </GitHubLink>
+        <NavLink to="/contact">Contact</NavLink>
       </Links>
     </Content>
   </SiteHeader>

@@ -78,7 +78,10 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { eq: false } } }
+      filter: {
+        frontmatter: { draft: { eq: false } }
+        fileAbsolutePath: { regex: "/blog/" }
+      }
     ) {
       totalCount
       edges {

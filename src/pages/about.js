@@ -93,59 +93,55 @@ const AboutPage = ({ data }) => (
       </p>
 
       <p>
-        I currently pursue cultural studies in{' '}
-        <a
-          href="https://www.google.com/maps/place/Kyoto,+Japan/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Kyoto, Japan
-        </a>
-        . I build websites and applications using React, Gatsby, NodeJS,
-        ExpressJS and MongoDB.
+        For many people websites have always been a struggle. A necessity for
+        your business, but something difficult in the back of your head that you
+        don&rsquo;t really want to deal with.
+      </p>
+
+      <blockquote style={{ textAlign: 'center', fontWeight: '800' }}>
+        How do you reach your costumers, provide information and present your
+        business online that it truly represents you and what you do?
+      </blockquote>
+
+      <p>This is difficult and is hard to do right.</p>
+
+      <p>
+        In 2016 I did my first website and since then have grappled with this
+        question.
       </p>
 
       <p>
-        In my free time, I like to go on hikes, study Japanese, and work on my{' '}
-        <Link to="/projects">projects</Link>.
+        But after years of experience and a variety of clients from personal
+        portfolios to local businesses and even travel blogs, I will make sure
+        to capture you and your business in a single website, similar to a
+        moving image telling your visitor about what you do and who you are.
       </p>
 
       <p>
-        Check out <Link to="/blog">my blog</Link> or{' '}
-        <a href="mailto:l.behrenberg@gmail.com">email me</a>.
+        The first website I did was for a small local business back in my
+        hometown in Germany. After this first project, I wanted to understand
+        more about not only the internet, but also about the people that all
+        this information on the internet is about.
       </p>
 
       <p>
-        Pellentesque habitant morbi tristique senectus et netus et malesuada
-        fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-        ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
-        egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend
-        leo. Quisque sit amet est et sapien ullamcorper pharetra.
+        So I went all out and traveled the world for 3 years. I connected with
+        people from all around the world and studied the internet and its
+        technologies. I found my passion in connecting the internet with the
+        people around me.&nbsp;
       </p>
+
       <p>
-        Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
-        wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
-        rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis
-        pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-        faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
-        Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-        facilisis luctus, metus
+        After these years of traveling, I found myself in Japan, the country
+        where I felt I could learn the most about its people, the internet and
+        myself. I am now based in Nagano, Japan, but travel frequently to Europe
+        and all other parts of the world.
       </p>
+
       <p>
-        Pellentesque habitant morbi tristique senectus et netus et malesuada
-        fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-        ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
-        egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend
-        leo. Quisque sit amet est et sapien ullamcorper pharetra.
-      </p>
-      <p>
-        Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
-        wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
-        rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis
-        pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-        faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
-        Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-        facilisis luctus, metus
+        If any of this sounded like this is for you, please feel free to contact
+        me on <a href="mailto:l.behrenberg@gmail.com">l.behrenberg@gmail.com</a>{' '}
+        or on the <Link to="/contact">contact form</Link>.
       </p>
     </Container>
   </div>

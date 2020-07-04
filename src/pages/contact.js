@@ -11,7 +11,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 900px;
   padding: 1.45rem 1.0875rem;
 `;
 
@@ -44,14 +44,18 @@ const Form = styled.form`
     color: #ffffff;
     border: none;
     outline: none;
-  }
-
-  input {
     border-bottom: 2px solid white;
   }
 
+  textarea {
+    min-height: 220px;
+  }
+
   button {
-    width: 200px;
+    width: auto;
+    background: none;
+    color: white;
+    float: right;
   }
 `;
 
@@ -61,6 +65,8 @@ const Info = styled.div`
 
   @media (max-width: 850px) {
     width: auto;
+    display: inline-block;
+    float: right;
   }
 `;
 
@@ -210,7 +216,9 @@ const Contact = ({ data }) => {
               <label>Message</label>
             </div>
             {/* <div data-netlify-recaptcha="true"></div> */}
-            <button type="submit">Send Message</button>
+            <div>
+              <button type="submit">Send Message</button>
+            </div>
           </Form>
         </Wrapper>
       </Container>

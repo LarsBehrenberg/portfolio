@@ -173,18 +173,18 @@ const Contact = ({ data }) => {
           <Form
             name="contact-us"
             method="POST"
+            data-netlify-recaptcha="true"
             data-netlify="true"
-            // data-netlify-recaptcha="true"
-            netlify-honeypot="bot-field"
+            // netlify-honeypot="bot-field"
             action="/thank-you"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact-us" />
-            <p class="hidden">
+            {/* <p class="hidden">
               <label>
                 Don’t fill this out if you're human: <input name="bot-field" />
               </label>
-            </p>
+            </p> */}
             <div>
               <input
                 type="text"
@@ -215,7 +215,7 @@ const Contact = ({ data }) => {
               />
               <label>Message</label>
             </div>
-            {/* <div data-netlify-recaptcha="true"></div> */}
+            <div data-netlify-recaptcha="true"></div>
             <div>
               <button type="submit">Send Message</button>
             </div>

@@ -6,9 +6,87 @@ import Img from 'gatsby-image';
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
-  padding: 1.45rem 1.0875rem;
+  max-width: 1400px;
+  /* min-height: 78vh; */
+  padding: 0.5rem 1.0875rem;
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
+
+const SideInfo = styled.div`
+  width: 700px;
+  height: 530px;
+  position: sticky;
+  top: 150px;
+  margin-right: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .image {
+    max-height: 350px;
+    width: 100%;
+
+    border-radius: 0.4em;
+    img {
+      border-radius: 0.4em;
+    }
+  }
+
+  .info {
+    height: 100px;
+    display: flex;
+    padding: 0 2rem;
+    width: 100%;
+
+    justify-content: space-between;
+    div {
+      border-radius: 4px;
+
+      padding: 0.5rem 0;
+
+      flex-basis: calc(50% - 1rem);
+      max-width: calc(50% - 1rem);
+      width: calc(50% - 1rem);
+
+      background: rgba(0, 0, 0, 0.2) 100%;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 30px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;
+
+    .image,
+    .info {
+      max-width: 700px;
+    }
+
+    .info {
+      margin: 3rem 0;
+    }
+  }
+`;
+
+const Wrapper = styled.div`
+  width: 50%;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+`;
+
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -23,12 +101,6 @@ const MarkedHeader = styled.h1`
     #d3d3d380 100%,
     #d3d3d325
   );
-`;
-
-const HeaderDate = styled.h3`
-  color: #d3d3d380;
-  text-align: right;
-  display: inline;
 `;
 
 // STYLE THE TAGS INSIDE THE MARKDOWN HERE
@@ -58,16 +130,30 @@ export default ({ data }) => {
         description={project.frontmatter.description || project.excerpt}
       />
       <Content>
-        <HeaderContainer>
-          <MarkedHeader>{project.frontmatter.title}</MarkedHeader>
-          <HeaderDate>{project.frontmatter.date}</HeaderDate>
-        </HeaderContainer>
-
-        <Img
-          fluid={project.frontmatter.cover.childImageSharp.fluid}
-          alt={`${project.frontmatter.title} Cover`}
-        />
-        <MarkdownContent dangerouslySetInnerHTML={{ __html: project.html }} />
+        <SideInfo>
+          <div className="image">
+            <Img
+              fluid={project.frontmatter.cover.childImageSharp.fluid}
+              alt={`${project.frontmatter.title} Cover`}
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
+          <div className="info">
+            <div>
+              <h3 style={{ marginBottom: '0.6em' }}>Customer</h3>
+              <p>{project.frontmatter.title}</p>
+            </div>
+            <div>
+              <h3>Features</h3>
+            </div>
+          </div>
+        </SideInfo>
+        <Wrapper>
+          <HeaderContainer>
+            <MarkedHeader>{`${project.frontmatter.title} - ${project.frontmatter.subTitle}`}</MarkedHeader>
+          </HeaderContainer>
+          <MarkdownContent dangerouslySetInnerHTML={{ __html: project.html }} />
+        </Wrapper>
       </Content>
     </>
   );
@@ -82,9 +168,10 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         path
         title
+        subTitle
         cover {
           childImageSharp {
-            fluid(quality: 100, traceSVG: { color: "#2B2B2F" }) {
+            fluid(maxWidth: 800, quality: 100, traceSVG: { color: "#2B2B2F" }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }

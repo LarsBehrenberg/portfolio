@@ -9,7 +9,7 @@ import Img from 'gatsby-image';
 const Container = styled.div`
   margin: 0 auto;
   max-width: 1100px;
-  padding: 1.45rem 1.0875rem;
+  padding: 0 1.0875rem;
 `;
 
 const ProjectWrapper = styled.div`
@@ -161,41 +161,70 @@ const Button = styled.p`
 `;
 
 const ProjectsPage = ({ data }) => {
-  const recentPosts = data.allMarkdownRemark.nodes.filter(
+  const projects = data.allMarkdownRemark.nodes.filter(
     (node) => node.fileAbsolutePath.includes('projects') == true
   );
 
-  const archivedPosts = data.allMarkdownRemark.nodes.filter(
-    (node) => node.fileAbsolutePath.includes('archive') == true
+  const portfolios = projects.filter(
+    ({ frontmatter }) => frontmatter.workField === 'Portfolio'
+  );
+
+  const blogs = projects.filter(
+    ({ frontmatter }) => frontmatter.workField === 'Blog'
+  );
+
+  const business = projects.filter(
+    ({ frontmatter }) => frontmatter.workField === 'Business'
+  );
+
+  // const archivedPosts = data.allMarkdownRemark.nodes.filter(
+  //   (node) => node.fileAbsolutePath.includes('archive') == true
+  // );
+
+  const item = (id, title, subTitle, cover, path) => (
+    <Wrapper key={id} to={path}>
+      <Image>
+        <Img fluid={cover} alt={title} />
+      </Image>
+      <StyledLink>
+        <Info>
+          <Title>{`${title} | ${subTitle}`}</Title>
+          <Button>Read more</Button>
+        </Info>
+      </StyledLink>
+    </Wrapper>
   );
 
   return (
     <>
       <SEO title="Projects" keywords={[`gatsby`, `application`, `react`]} />
       <Container>
-        <h1>Projects</h1>
-        <h2>Recent Projects</h2>
+        <h1>Recent Projects</h1>
+        <h2>Porfolios</h2>
         <ProjectWrapper>
-          {recentPosts.map(({ id, frontmatter }) => {
-            const { title, cover, path } = frontmatter;
-            return (
-              <Wrapper key={id} to={path}>
-                <Image>
-                  <Img fluid={cover.childImageSharp.fluid} alt={title} />
-                </Image>
-                <StyledLink>
-                  <Info>
-                    <Title>{title}</Title>
-                    <Button>Read more</Button>
-                  </Info>
-                </StyledLink>
-              </Wrapper>
-            );
+          {portfolios.map(({ id, frontmatter }) => {
+            const { title, subTitle, cover, path } = frontmatter;
+            return item(id, title, subTitle, cover.childImageSharp.fluid, path);
           })}
         </ProjectWrapper>
 
-        <h2>Archive</h2>
-        <ProjectTable posts={archivedPosts} />
+        <h2>Businesses</h2>
+        <ProjectWrapper>
+          {business.map(({ id, frontmatter }) => {
+            const { title, subTitle, cover, path } = frontmatter;
+            return item(id, title, subTitle, cover.childImageSharp.fluid, path);
+          })}
+        </ProjectWrapper>
+
+        <h2>Blogs</h2>
+        <ProjectWrapper>
+          {blogs.map(({ id, frontmatter }) => {
+            const { title, subTitle, cover, path } = frontmatter;
+            return item(id, title, subTitle, cover.childImageSharp.fluid, path);
+          })}
+        </ProjectWrapper>
+        {/* <h2>Archive</h2>
+        <ProjectTable posts={archivedPosts} /> */}
       </Container>
     </>
   );
@@ -206,7 +235,7 @@ export default ProjectsPage;
 export const data = graphql`
   query {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
       filter: {
         fileAbsolutePath: { regex: "/projects|archive/" }
         frontmatter: { draft: { eq: false } }
@@ -217,6 +246,8 @@ export const data = graphql`
         fileAbsolutePath
         frontmatter {
           title
+          subTitle
+          workField
           date
           path
           linkToProject

@@ -1,12 +1,12 @@
 ---
-title: Alex Kerr
-subTitle: Japanologist
-workField: Portfolio
-date: '2020-07-03'
+title: The Orpheist
+subTitle: Chiropractic
+workField: Business
+date: '2020-02-03'
 draft: false
-path: '/projects/alex-kerr'
-cover: ../assets/project-alexkerr.jpg
-linkToProject: https://alexkerr.net
+path: '/projects/orpheist-kyoto'
+cover: ../assets/project-chihirohori.jpg
+linkToProject: https://orpheist-kyoto.com/
 linkToCode: ''
 ---
 

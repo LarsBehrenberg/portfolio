@@ -1,5 +1,7 @@
 ---
-title: 'ImpressionistArts | Blog'
+title: ImpressionistArts
+subTitle: Blog
+workField: Blog
 date: '2020-07-02'
 draft: false
 path: '/projects/impressionistarts'

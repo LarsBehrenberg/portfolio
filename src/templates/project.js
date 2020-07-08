@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import SEO from '../components/seo';
 import Img from 'gatsby-image';
+import UsedTechnologies from '../components/used-technologies';
 
 const Content = styled.div`
   margin: 0 auto;
@@ -60,6 +61,10 @@ const SideInfo = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    h3 {
+      margin-bottom: 0.6em;
     }
   }
 
@@ -122,41 +127,60 @@ const MarkdownContent = styled.div`
   }
 `;
 
+const TechContainer = styled.p`
+  display: flex;
+  & > * {
+    margin: 0 0.5em 0 0;
+    display: inline;
+  }
+`;
+
 export default ({ data }) => {
   const project = data.markdownRemark;
+  const {
+    title,
+    subTitle,
+    linkToProject,
+    cover,
+    technologies,
+  } = project.frontmatter;
+
   return (
     <>
       <SEO
-        title={project.frontmatter.title}
+        title={title}
         description={project.frontmatter.description || project.excerpt}
       />
       <Content>
         <SideInfo>
           <a
             className="image"
-            href={project.frontmatter.linkToProject}
+            href={linkToProject}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Img
-              fluid={project.frontmatter.cover.childImageSharp.fluid}
-              alt={`${project.frontmatter.title} Cover`}
+              fluid={cover.childImageSharp.fluid}
+              alt={`${title} Cover`}
               style={{ objectFit: 'contain' }}
             />
           </a>
           <div className="info">
             <div>
-              <h3 style={{ marginBottom: '0.6em' }}>Customer</h3>
-              <p>{project.frontmatter.title}</p>
+              <h3>Customer</h3>
+              <p>{title}</p>
             </div>
             <div>
               <h3>Technologies used</h3>
+              <TechContainer>
+                <UsedTechnologies tech={technologies} />
+              </TechContainer>
             </div>
           </div>
         </SideInfo>
         <Wrapper>
           <HeaderContainer>
-            <MarkedHeader>{`${project.frontmatter.title} - ${project.frontmatter.subTitle}`}</MarkedHeader>
+            <MarkedHeader>{`${title} - ${subTitle}`}</MarkedHeader>
           </HeaderContainer>
           <MarkdownContent dangerouslySetInnerHTML={{ __html: project.html }} />
         </Wrapper>
@@ -176,6 +200,7 @@ export const pageQuery = graphql`
         title
         subTitle
         linkToProject
+        technologies
         cover {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100, traceSVG: { color: "#2B2B2F" }) {

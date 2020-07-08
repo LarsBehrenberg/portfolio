@@ -19,7 +19,7 @@ const Content = styled.div`
 
 const SideInfo = styled.div`
   width: 700px;
-  height: 530px;
+  height: 600px;
   position: sticky;
   top: 150px;
   margin-right: 2rem;
@@ -32,6 +32,7 @@ const SideInfo = styled.div`
     width: 100%;
 
     border-radius: 0.4em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 30px;
     img {
       border-radius: 0.4em;
     }
@@ -131,20 +132,25 @@ export default ({ data }) => {
       />
       <Content>
         <SideInfo>
-          <div className="image">
+          <a
+            className="image"
+            href={project.frontmatter.linkToProject}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Img
               fluid={project.frontmatter.cover.childImageSharp.fluid}
               alt={`${project.frontmatter.title} Cover`}
               style={{ objectFit: 'contain' }}
             />
-          </div>
+          </a>
           <div className="info">
             <div>
               <h3 style={{ marginBottom: '0.6em' }}>Customer</h3>
               <p>{project.frontmatter.title}</p>
             </div>
             <div>
-              <h3>Features</h3>
+              <h3>Technologies used</h3>
             </div>
           </div>
         </SideInfo>
@@ -169,6 +175,7 @@ export const pageQuery = graphql`
         path
         title
         subTitle
+        linkToProject
         cover {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100, traceSVG: { color: "#2B2B2F" }) {

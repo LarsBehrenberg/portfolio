@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
+import logo from '../images/logo_white.png';
 
 const Container = styled.div`
   text-align: center;
+  margin-top: -3rem;
 `;
 
 const OuterContainer = styled.div`
@@ -12,12 +14,13 @@ const OuterContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  height: 78vh;
+  height: 80vh;
 `;
 
 const NameHeader = styled.h1`
   font-size: 4rem;
   margin-bottom: 0;
+  clear: both;
 `;
 
 const Description = styled.p`
@@ -41,6 +44,15 @@ const LandingBio = () => (
     render={(data) => (
       <OuterContainer>
         <Container>
+          <img
+            src={logo}
+            alt="behrenbnerg"
+            style={{
+              width: '100px',
+              marginBottom: '-10px',
+              float: 'right',
+            }}
+          />
           <NameHeader>{data.site.siteMetadata.title}</NameHeader>
           <Description>{data.site.siteMetadata.subtitle}</Description>
           {/* <NameHeader>Behrenberg</NameHeader>

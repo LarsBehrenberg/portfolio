@@ -1,7 +1,8 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 
-import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
+import { GrGatsbyjs, GrGraphQl, GrWordpress } from 'react-icons/gr';
+import { FaPhp } from 'react-icons/fa';
 
 const UsedTechnologies = ({ tech }) => (
   <IconContext.Provider value={{ size: '1.4em' }}>
@@ -25,6 +26,26 @@ const UsedTechnologies = ({ tech }) => (
                 rel="noopener noreferrer"
               >
                 <GrGraphQl />
+              </a>
+            );
+          } else if (element === 'wordpress') {
+            return (
+              <a
+                href="https://wordpress.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GrWordpress />
+              </a>
+            );
+          } else if (element === 'php') {
+            return (
+              <a
+                href="https://www.php.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaPhp />
               </a>
             );
           } else if (element === 'netlify') {

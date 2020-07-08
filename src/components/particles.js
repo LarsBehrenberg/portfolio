@@ -120,7 +120,8 @@ const Particles = () => (
       left: 0,
       height: '100%',
       pointerEvents: 'none',
-      backgroundColor: '#284356',
+      backgroundColor: '#153244',
+
       zIndex: -10,
     }}
     params={particlesParameters}

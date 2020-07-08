@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import SEO from '../components/seo';
-import Img from 'gatsby-image';
 import UsedTechnologies from '../components/used-technologies';
 
 const Content = styled.div`
@@ -135,7 +135,7 @@ const TechContainer = styled.p`
   }
 `;
 
-export default ({ data }) => {
+const Project = ({ data }) => {
   const project = data.markdownRemark;
   const {
     title,
@@ -212,3 +212,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default Project;

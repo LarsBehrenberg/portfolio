@@ -5,7 +5,7 @@ workField: Business
 date: '2018-05-03'
 draft: false
 path: '/projects/tfbs'
-cover: ../assets/project-chihirohori.jpg
+cover: ../assets/project-tfbs-telgte.jpg
 linkToProject: https://tfbs.de/
 linkToCode: ''
 ---

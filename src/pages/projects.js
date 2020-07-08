@@ -17,13 +17,13 @@ const ProjectWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 2rem 4rem 1rem 4rem;
+  margin: 2rem auto 1rem auto;
 
   @media (max-width: 1000px) {
-    margin: 4rem 2rem 1rem 2rem;
+    margin: 4rem auto 1rem auto;
   }
   @media (max-width: 700px) {
-    margin: 3rem 1rem 1rem 1rem;
+    margin: 3rem auto 1rem auto;
   }
   @media (min-width: 1200px) {
     max-width: 1100px;
@@ -235,9 +235,9 @@ export default ProjectsPage;
 export const data = graphql`
   query {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: {
-        fileAbsolutePath: { regex: "/projects|archive/" }
+        fileAbsolutePath: { regex: "/projects/" }
         frontmatter: { draft: { eq: false } }
       }
     ) {

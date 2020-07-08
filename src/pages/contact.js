@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 import { IconContext } from 'react-icons';
-import { FaGithub, FaLinkedinIn, FaXing } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn, FaXing, FaDev } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
 
 const Container = styled.div`
@@ -174,7 +174,13 @@ const Contact = ({ data }) => {
                 >
                   <FaGithub />
                 </a>
-
+                <a
+                  href="https://dev.to/larsbehrenberg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaDev />
+                </a>
                 <a href="mailto:l.behrenberg@gmail.com">
                   <AiOutlineMail />
                 </a>

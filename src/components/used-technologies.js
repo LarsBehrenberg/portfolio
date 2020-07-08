@@ -7,13 +7,14 @@ import { FaPhp } from 'react-icons/fa';
 const UsedTechnologies = ({ tech }) => (
   <IconContext.Provider value={{ size: '1.4em' }}>
     {tech
-      ? tech.map((element) => {
+      ? tech.map((element, index) => {
           if (element === 'gatsby') {
             return (
               <a
                 href="https://www.gatsbyjs.org/"
                 target="_blank"
                 rel="noopener noreferrer"
+                key={`icon-${index}`}
               >
                 <GrGatsbyjs />
               </a>

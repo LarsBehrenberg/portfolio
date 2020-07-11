@@ -22,6 +22,7 @@ const SideInfo = styled.div`
   width: 700px;
   position: sticky;
   height: 70vh;
+  max-height: 800px;
   top: 80px;
   margin-right: 4rem;
   display: flex;
@@ -76,7 +77,9 @@ const SideInfo = styled.div`
     .info {
       max-width: 700px;
     }
-
+    .image {
+      margin-top: 3rem;
+    }
     .info {
       margin: 3rem 0;
     }

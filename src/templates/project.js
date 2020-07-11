@@ -20,20 +20,18 @@ const Content = styled.div`
 
 const SideInfo = styled.div`
   width: 700px;
-  height: 600px;
   position: sticky;
-  top: 150px;
-  margin-right: 2rem;
+  height: 70vh;
+  top: 80px;
+  margin-right: 4rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
   .image {
-    max-height: 350px;
     width: 100%;
 
     border-radius: 0.4em;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 30px;
     img {
       border-radius: 0.4em;
     }
@@ -94,9 +92,8 @@ const Wrapper = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
+  height: auto;
 `;
 const MarkedHeader = styled.h1`
   display: inline;
@@ -107,11 +104,11 @@ const MarkedHeader = styled.h1`
     #d3d3d380 100%,
     #d3d3d325
   );
+  margin: 0;
 `;
 
 // STYLE THE TAGS INSIDE THE MARKDOWN HERE
 const MarkdownContent = styled.div`
-  margin-top: 1.45rem;
   a {
     text-decoration: none;
     position: relative;
@@ -153,6 +150,9 @@ const Project = ({ data }) => {
       />
       <Content>
         <SideInfo>
+          <HeaderContainer>
+            <MarkedHeader>{`${title} - ${subTitle}`}</MarkedHeader>
+          </HeaderContainer>
           <a
             className="image"
             href={linkToProject}
@@ -179,9 +179,6 @@ const Project = ({ data }) => {
           </div>
         </SideInfo>
         <Wrapper>
-          <HeaderContainer>
-            <MarkedHeader>{`${title} - ${subTitle}`}</MarkedHeader>
-          </HeaderContainer>
           <MarkdownContent dangerouslySetInnerHTML={{ __html: project.html }} />
         </Wrapper>
       </Content>

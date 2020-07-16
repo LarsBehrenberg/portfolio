@@ -9,7 +9,7 @@ import Img from 'gatsby-image';
 const Container = styled.div`
   margin: 0 auto;
   max-width: 1100px;
-  padding: 0 1.0875rem;
+  padding: 1.45rem 1.0875rem;
 `;
 
 const ProjectWrapper = styled.div`
@@ -31,7 +31,7 @@ const ProjectWrapper = styled.div`
   }
 `;
 
-const Wrapper = styled(Link)`
+const Wrapper = styled.a`
   margin-bottom: 2rem;
   position: relative;
   z-index: 10;
@@ -182,14 +182,14 @@ const ProjectsPage = ({ data }) => {
   // );
 
   const item = (id, title, subTitle, cover, path) => (
-    <Wrapper key={id} to={path}>
+    <Wrapper key={id} href={path} target="_blank" rel="noopener noreferrer">
       <Image>
         <Img fluid={cover} alt={title} />
       </Image>
       <StyledLink>
         <Info>
           <Title>{`${title} | ${subTitle}`}</Title>
-          <Button>Read more</Button>
+          {/* <Button>Read more</Button> */}
         </Info>
       </StyledLink>
     </Wrapper>
@@ -203,24 +203,42 @@ const ProjectsPage = ({ data }) => {
         <h2>Porfolios</h2>
         <ProjectWrapper>
           {portfolios.map(({ id, frontmatter }) => {
-            const { title, subTitle, cover, path } = frontmatter;
-            return item(id, title, subTitle, cover.childImageSharp.fluid, path);
+            const { title, subTitle, cover, linkToProject } = frontmatter;
+            return item(
+              id,
+              title,
+              subTitle,
+              cover.childImageSharp.fluid,
+              linkToProject
+            );
           })}
         </ProjectWrapper>
 
         <h2>Businesses</h2>
         <ProjectWrapper>
           {business.map(({ id, frontmatter }) => {
-            const { title, subTitle, cover, path } = frontmatter;
-            return item(id, title, subTitle, cover.childImageSharp.fluid, path);
+            const { title, subTitle, cover, linkToProject } = frontmatter;
+            return item(
+              id,
+              title,
+              subTitle,
+              cover.childImageSharp.fluid,
+              linkToProject
+            );
           })}
         </ProjectWrapper>
 
         <h2>Blogs</h2>
         <ProjectWrapper>
           {blogs.map(({ id, frontmatter }) => {
-            const { title, subTitle, cover, path } = frontmatter;
-            return item(id, title, subTitle, cover.childImageSharp.fluid, path);
+            const { title, subTitle, cover, linkToProject } = frontmatter;
+            return item(
+              id,
+              title,
+              subTitle,
+              cover.childImageSharp.fluid,
+              linkToProject
+            );
           })}
         </ProjectWrapper>
         {/* <h2>Archive</h2>

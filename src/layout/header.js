@@ -10,7 +10,7 @@ const SiteHeader = styled.header`
 `;
 
 const Content = styled.div`
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 1.5rem 1.0875rem 1rem;
   font-size: 1.2rem;
@@ -81,7 +81,7 @@ const Header = () => {
         <Menu>
           <HomeLink to="/">Home</HomeLink>
           <NavLink to="/latest-work">Latest Work</NavLink>
-          <NavLink to="/">Insights</NavLink>
+          {/* <NavLink to="/insights">Insights</NavLink> */}
           <NavLink to="/about">About</NavLink>
           <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
             Get In Touch

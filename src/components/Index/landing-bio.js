@@ -60,7 +60,7 @@ const LandingBio = () => (
         for you to grow your business and share your success.
       </p>
       <ButtonContainer>
-        <Link to="/">Latest Work</Link>
+        <Link to="/latest-work">Latest Work</Link>
         <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
           Get In Touch
         </a>

@@ -17,7 +17,7 @@ const Container = styled.div`
   position: absolute;
   margin: 0 auto;
   height: var(--basic-footer-height);
-  max-width: 1350px;
+  max-width: 1250px;
   width: calc(100% - 2.175rem);
   z-index: 5;
   display: flex;

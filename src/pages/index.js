@@ -1,13 +1,39 @@
-import React from "react"
+import React from 'react';
 
-import LandingBio from "../components/landing-bio"
-import SEO from "../components/seo"
+import { GoNextButton, LandingBio, Skills } from 'components';
+import { SEO } from 'layout';
+import { graphql } from 'gatsby';
 
-const IndexPage = () => (
-    <div>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <LandingBio />
-    </div>
-)
+const IndexPage = ({ data }) => (
+  <div>
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <LandingBio />
+    <GoNextButton />
+    <Skills skills={data.skills.nodes} />
+  </div>
+);
 
-export default IndexPage
+export default IndexPage;
+
+export const data = graphql`
+  query {
+    skills: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/index/skills/" } }
+    ) {
+      nodes {
+        id
+        html
+        frontmatter {
+          title
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

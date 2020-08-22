@@ -1,19 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
-
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
-
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -54,25 +38,34 @@ exports.createPages = ({ graphql, actions }) => {
     if (result.errors) {
       return Promise.reject(result.errors);
     }
-    result.data.allMarkdownRemark.edges
-      .filter(({ node }) => node.frontmatter.path.includes('blog'))
-      .forEach(({ node }) => {
-        createPage({
-          path: node.frontmatter.path,
-          component: blogPostTemplate,
-          slug: node.fields.slug,
-          context: {},
-        });
-      });
-    result.data.allMarkdownRemark.edges
-      .filter(({ node }) => node.frontmatter.path.includes('projects'))
-      .forEach(({ node }) => {
-        createPage({
-          path: node.frontmatter.path,
-          component: projectTemplate,
-          slug: node.fields.slug,
-          context: {},
-        });
-      });
+    // result.data.allMarkdownRemark.edges
+    //   .filter(({ node }) => node.frontmatter.path.includes('blog'))
+    //   .forEach(({ node }) => {
+    //     createPage({
+    //       path: node.frontmatter.path,
+    //       component: blogPostTemplate,
+    //       slug: node.fields.slug,
+    //       context: {},
+    //     });
+    //   });
+    // result.data.allMarkdownRemark.edges
+    //   .filter(({ node }) => node.frontmatter.path.includes('projects'))
+    //   .forEach(({ node }) => {
+    //     createPage({
+    //       path: node.frontmatter.path,
+    //       component: projectTemplate,
+    //       slug: node.fields.slug,
+    //       context: {},
+    //     });
+    //   });
+  });
+};
+
+/* Allows named imports */
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
   });
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
-import SEO from '../components/seo';
+import { SEO } from 'layout';
 
 const Content = styled.div`
   margin: 0 auto;

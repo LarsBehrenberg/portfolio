@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../components/seo';
+import { SEO } from 'layout';
 import ProjectTable from '../components/project-table';
 import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';

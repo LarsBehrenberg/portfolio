@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import SEO from '../components/seo';
+import { SEO } from 'layout';
 
 const Content = styled.div`
   margin: 0 auto;

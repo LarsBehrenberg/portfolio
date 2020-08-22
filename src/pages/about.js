@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import SEO from '../components/seo';
+import { SEO } from 'layout';
 import styled from '@emotion/styled';
 
 import { IconContext } from 'react-icons';
@@ -82,9 +82,9 @@ const AboutPage = ({ data }) => (
               <FaGithub />
             </a>
 
-            <Link to="/contact">
+            <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
               <AiOutlineMail />
-            </Link>
+            </a>
           </IconContext.Provider>
         </IconContainer>
       </Image>
@@ -140,8 +140,11 @@ const AboutPage = ({ data }) => (
 
       <p>
         If any of this sounded like this is for you, please feel free to contact
-        me on <a href="mailto:l.behrenberg@gmail.com">l.behrenberg@gmail.com</a>{' '}
-        or on the <Link to="/contact">contact form</Link>.
+        me on{' '}
+        <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
+          l.behrenberg@gmail.com
+        </a>
+        .
       </p>
     </Container>
   </div>

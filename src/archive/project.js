@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '@emotion/styled';
-import SEO from '../components/seo';
+import { SEO } from 'layout';
 import UsedTechnologies from '../components/used-technologies';
 
 const Content = styled.div`

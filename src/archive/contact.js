@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby-link';
 
-import SEO from '../components/seo';
+import { SEO } from 'layout';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 

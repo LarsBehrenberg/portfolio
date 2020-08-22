@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import SEO from '../../components/seo';
+import { SEO } from 'layout';
 import '../../styles/choropleth-map.css';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';

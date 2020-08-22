@@ -1,6 +1,7 @@
 ---
 title: Back-End Development
 cover: ../../assets/back-end-development.jpg
+index: 3
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere

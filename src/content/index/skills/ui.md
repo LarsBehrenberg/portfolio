@@ -1,6 +1,7 @@
 ---
 title: User-Focused Design
 cover: ../../assets/user-experience.jpg
+index: 1
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere

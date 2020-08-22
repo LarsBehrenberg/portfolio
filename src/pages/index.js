@@ -19,6 +19,7 @@ export const data = graphql`
   query {
     skills: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/index/skills/" } }
+      sort: { fields: frontmatter___index, order: ASC }
     ) {
       nodes {
         id

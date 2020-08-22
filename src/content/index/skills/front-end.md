@@ -1,6 +1,7 @@
 ---
 title: Front-End Development
 cover: ../../assets/front-end-development.jpg
+index: 2
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere

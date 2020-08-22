@@ -80,7 +80,7 @@ const Header = () => {
         </Link>
         <Menu>
           <HomeLink to="/">Home</HomeLink>
-          <NavLink to="/">Latest Work</NavLink>
+          <NavLink to="/latest-work">Latest Work</NavLink>
           <NavLink to="/">Insights</NavLink>
           <NavLink to="/about">About</NavLink>
           <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">

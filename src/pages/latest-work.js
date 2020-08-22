@@ -1,17 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-
-const OuterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 70vh;
-`;
+import { Skills } from 'components';
+import { SEO } from 'layout';
+import { graphql, Link } from 'gatsby';
 
 const Container = styled.div`
   max-width: 600px;
+  margin-bottom: -3rem;
 `;
 
 const NameHeader = styled.h1`
@@ -42,31 +37,51 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const LandingBio = () => (
-  <OuterContainer>
+const IndexPage = ({ data }) => (
+  <div>
+    <SEO title="Latest Work" keywords={[`gatsby`, `application`, `react`]} />
+
     <Container>
-      <Subtitle>Freelance Website Developer</Subtitle>
-      <NameHeader>Lars Behrenberg</NameHeader>
+      <Subtitle>Your Bespoke Website</Subtitle>
+      <NameHeader>Latest Work</NameHeader>
       <p>
         Your website is the digital brochure and a potential storefront of your
         business. I create bespoke Fullstack websites from the front-end designs
         to the outstanding backend capabilities which become fully customisable
         for any ability of the user.
       </p>
-      <p>
-        Beautiful websites are what I do best, coding in range of languages
-        including HTML, CSS, SCSS, JavaScript, jQuery, PHP and working with
-        popular frameworks like React, WordPress and Gatsby I can create a space
-        for you to grow your business and share your success.
-      </p>
       <ButtonContainer>
-        <Link to="/">Latest Work</Link>
+        <a href="/latest-work#works">See Works</a>
         <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
           Get In Touch
         </a>
       </ButtonContainer>
     </Container>
-  </OuterContainer>
+    <Skills skills={data.works.nodes} id="works" />
+  </div>
 );
 
-export default LandingBio;
+export default IndexPage;
+
+export const data = graphql`
+  query {
+    works: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/works/" } }
+    ) {
+      nodes {
+        id
+        excerpt(pruneLength: 400, format: HTML)
+        frontmatter {
+          title
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

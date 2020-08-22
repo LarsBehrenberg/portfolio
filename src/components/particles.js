@@ -52,7 +52,7 @@ const particlesParameters = {
       enable: true,
       distance: 150,
       color: '#ffffff',
-      opacity: 0.3,
+      opacity: 0.4,
       width: 1,
     },
     move: {
@@ -87,7 +87,7 @@ const particlesParameters = {
       grab: {
         distance: 120,
         line_linked: {
-          opacity: 0.6,
+          opacity: 0.9,
         },
       },
       bubble: {

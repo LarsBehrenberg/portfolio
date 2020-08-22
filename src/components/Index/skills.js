@@ -75,13 +75,13 @@ const SingleSkill = ({ title, description, image }) => (
   </Container>
 );
 
-const Skills = ({ skills }) => (
-  <OuterContainer>
-    {skills.map(({ id, html, frontmatter: { title, cover } }) => (
+const Skills = ({ skills, id }) => (
+  <OuterContainer id={id || 'skills'}>
+    {skills.map(({ id, html, excerpt, frontmatter: { title, cover } }) => (
       <SingleSkill
         key={id}
         title={title}
-        description={html}
+        description={html || excerpt}
         image={cover.childImageSharp.fluid}
       />
     ))}

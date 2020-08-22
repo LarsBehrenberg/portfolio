@@ -101,7 +101,7 @@ const Background = styled.div`
   left: 0;
   margin: 0 auto;
 
-  background: #152632;
+  background-color: rgb(21, 38, 50);
 `;
 
 const Footer = () => (

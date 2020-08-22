@@ -12,6 +12,22 @@ const Container = styled.div`
     border: 1px solid #fff;
     border-radius: 50%;
   }
+
+  .svg-transition {
+    transition: all 1s;
+    transform-origin: 50% 50%;
+  }
+
+  :hover {
+    svg {
+      border: 1px solid #ffffff80;
+      fill: grey;
+    }
+
+    .svg-transition {
+      transform: scale(1.4);
+    }
+  }
 `;
 
 const GoNextButton = () => (
@@ -23,6 +39,7 @@ const GoNextButton = () => (
         viewBox="-10 0 40 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="svg-transition"
       >
         <g clipPath="url(#clip0)">
           <path

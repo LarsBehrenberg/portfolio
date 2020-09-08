@@ -1,16 +1,16 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Img from 'gatsby-image';
+import React from 'react'
+import styled from '@emotion/styled'
+import Img from 'gatsby-image'
 
 const OuterContainer = styled.div`
-  & > div:nth-of-type(2n) {
+  & > div:nth-of-type(2n-1) {
     flex-direction: row-reverse;
 
     @media (max-width: 800px) {
       flex-direction: column;
     }
   }
-`;
+`
 
 const Container = styled.div`
   margin-top: 8rem;
@@ -26,7 +26,7 @@ const Container = styled.div`
       width: 100%;
     }
   }
-`;
+`
 
 const Image = styled.div`
   background: grey;
@@ -42,7 +42,7 @@ const Image = styled.div`
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
   }
-`;
+`
 
 const Text = styled.div`
   width: 50%;
@@ -55,7 +55,7 @@ const Text = styled.div`
   @media (min-width: 1200px) {
     padding: 2rem 3rem 1rem;
   }
-`;
+`
 
 const SingleSkill = ({ title, description, image }) => (
   <Container>
@@ -73,7 +73,7 @@ const SingleSkill = ({ title, description, image }) => (
       <div dangerouslySetInnerHTML={{ __html: description }} />
     </Text>
   </Container>
-);
+)
 
 const Skills = ({ skills, id }) => (
   <OuterContainer id={id || 'skills'}>
@@ -86,6 +86,6 @@ const Skills = ({ skills, id }) => (
       />
     ))}
   </OuterContainer>
-);
+)
 
-export default Skills;
+export default Skills

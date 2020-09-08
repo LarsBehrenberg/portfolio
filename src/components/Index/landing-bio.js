@@ -1,23 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 
 const OuterContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  min-height: 70vh;
-`;
+  height: 70vh;
+  max-height: 700px;
+`
 
 const Container = styled.div`
   max-width: 600px;
-`;
+`
 
 const NameHeader = styled.h1`
   font-size: 3rem;
   font-weight: 400;
-`;
+`
 
 const Subtitle = styled.p`
   margin-bottom: 0.3rem;
@@ -25,7 +26,7 @@ const Subtitle = styled.p`
   font-size: 1.4rem;
   border-left: 2px solid white;
   padding-left: 0.8rem;
-`;
+`
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -40,7 +41,7 @@ const ButtonContainer = styled.div`
     color: #fff;
     text-decoration: none;
   }
-`;
+`
 
 const LandingBio = () => (
   <OuterContainer>
@@ -67,6 +68,6 @@ const LandingBio = () => (
       </ButtonContainer>
     </Container>
   </OuterContainer>
-);
+)
 
-export default LandingBio;
+export default LandingBio

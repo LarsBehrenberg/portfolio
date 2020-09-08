@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GoNextButton, LandingBio, Skills } from 'components';
+import { GoNextButton, LandingBio, Skills, Testimonials } from 'components';
 import { SEO } from 'layout';
 import { graphql } from 'gatsby';
 
@@ -9,6 +9,7 @@ const IndexPage = ({ data }) => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <LandingBio />
     <GoNextButton />
+    <Testimonials testimonial={data.testimonial} />
     <Skills skills={data.skills.nodes} />
   </div>
 );
@@ -31,6 +32,22 @@ export const data = graphql`
               fluid(maxWidth: 800) {
                 ...GatsbyImageSharpFluid_withWebp
               }
+            }
+          }
+        }
+      }
+    }
+    testimonial: markdownRemark(
+      fileAbsolutePath: { regex: "/index/testimonial.md/" }
+    ) {
+      html
+      frontmatter {
+        title
+        subtitle
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

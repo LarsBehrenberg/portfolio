@@ -5,7 +5,9 @@ import { LocaleContext } from './Layout'
 import locales from '../../config/i18n'
 
 const LocalizedLink = ({ to, ...props }) => {
-  const { locale } = React.useContext(LocaleContext)
+  const lang = React.useContext(LocaleContext)
+
+  const locale = lang.locale ? lang.locale : "en-us"
   const isIndex = to === '/'
   const path = locales[locale].default
     ? to

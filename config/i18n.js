@@ -22,6 +22,7 @@ module.exports = {
     // entries: 'entries',
   },
   'de-de': {
+    default: false,
     path: 'de',
     locale: 'de-de',
     siteLanguage: 'de',

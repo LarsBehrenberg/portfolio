@@ -52,7 +52,7 @@ const Content = styled.div`
 
 const LocaleContext = React.createContext()
 
-const Layout = ({ children, pageContext: { locale }, location }) => (
+const Layout = ({ children, pageContext: { locale = "en-us" }, location }) => (
   <LocaleContext.Provider value={{ locale, i18n, location }}>
     <ThemeProvider theme={theme}>
       <>

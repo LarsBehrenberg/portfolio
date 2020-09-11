@@ -24,8 +24,12 @@ export const LinkList = styled.ul`
   display: flex;
   justify-content: space-around;
   li {
-    margin: 1rem 0.5rem;
+    margin: 1rem 0;
     padding: 0 0.5rem;
+    :first-of-type,
+    :last-of-type {
+      margin: 1rem 0.5rem;
+    }
     list-style: none;
     position: relative;
 
@@ -43,12 +47,16 @@ export const LinkList = styled.ul`
       transform: none;
       background: none;
     }
-  }
 
-  li:last-of-type,
-  li:last-of-type a::after {
-    margin-left: 0;
-    border-right: none;
+    :last-of-type a::after {
+      border-right: none;
+    }
+    a {
+      transition: color ease-out 300ms;
+    }
+    :hover a {
+      color: grey;
+    }
   }
 
   margin-left: ${props => (props.marginLeft ? props.marginLeft : 0)};

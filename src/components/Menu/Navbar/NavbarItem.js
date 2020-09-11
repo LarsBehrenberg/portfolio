@@ -72,6 +72,12 @@ const DropdownSlot = styled.div`
 
 const LangSwitcher = styled(GiWorld)`
   margin-top: 0.1rem;
+  path {
+    transition: fill ease-out 100ms;
+  }
+  :hover path {
+    fill: grey;
+  }
 `
 
 export default class NavbarItem extends Component {

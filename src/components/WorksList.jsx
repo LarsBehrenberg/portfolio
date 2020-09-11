@@ -45,6 +45,7 @@ const Image = styled.a`
 
   @media (max-width: 800px) {
     height: 300px;
+    width: 100%;
     margin-bottom: 2rem;
   }
   border-radius: 0.4rem;

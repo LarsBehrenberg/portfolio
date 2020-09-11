@@ -1,8 +1,10 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from 'react'
+import styled from '@emotion/styled'
 
-import { IconContext } from 'react-icons';
-import { FaGithub, FaLinkedinIn, FaXing } from 'react-icons/fa';
+import { IconContext } from 'react-icons'
+import { FaGithub, FaLinkedinIn, FaXing } from 'react-icons/fa'
+
+import LocalizedLink from './LocalizedLink'
 
 const OuterContainer = styled.div`
   --basic-footer-height: 250px;
@@ -11,7 +13,7 @@ const OuterContainer = styled.div`
   min-height: var(--basic-footer-height);
   height: var(--basic-footer-height);
   margin-top: 4rem;
-`;
+`
 
 const Container = styled.div`
   position: absolute;
@@ -39,7 +41,17 @@ const Container = styled.div`
       }
     }
   }
-`;
+
+  .social_link {
+    svg,
+    path {
+      transition: fill ease-out 300ms;
+    }
+    svg:hover path {
+      fill: white;
+    }
+  }
+`
 
 const AlwaysInTouch = styled.a`
   div,
@@ -82,7 +94,7 @@ const AlwaysInTouch = styled.a`
     font-style: italic;
     display: inline-block;
   }
-`;
+`
 
 const IconContainer = styled.div`
   display: flex;
@@ -92,7 +104,7 @@ const IconContainer = styled.div`
   > * {
     margin: 1em 0.6em 0.5em;
   }
-`;
+`
 
 const Background = styled.div`
   width: 100vw;
@@ -102,7 +114,37 @@ const Background = styled.div`
   margin: 0 auto;
 
   background-color: rgb(21, 38, 50);
-`;
+`
+
+const LinkContainer = styled.div`
+  a {
+    transition: all ease-out 300ms;
+    text-decoration: none;
+    position: relative;
+
+    :last-of-type {
+      margin-left: 1.5rem;
+    }
+
+    ::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transform-origin: bottom right;
+      transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+    :hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+`
 
 const Footer = () => (
   <OuterContainer>
@@ -126,16 +168,17 @@ const Footer = () => (
           <h1>Lars Behrenberg</h1>
         </div>
       </AlwaysInTouch>
-      <a href="mailto:l.behrenberg@gmail.com" className="mailtoui">
-        Get In Touch
-      </a>
-
+      <LinkContainer>
+        <LocalizedLink to="/imprint">Imprint</LocalizedLink>
+        <LocalizedLink to="/privacy">Privacy Policy</LocalizedLink>
+      </LinkContainer>
       <IconContainer>
         <IconContext.Provider value={{ color: '#ffffff90', size: '1.4em' }}>
           <a
             href="https://www.linkedin.com/in/lars-behrenberg/"
             target="_blank"
             rel="noopener noreferrer"
+            className="social_link"
           >
             <FaLinkedinIn />
           </a>
@@ -143,6 +186,7 @@ const Footer = () => (
             href="https://www.xing.com/profile/Lars_Behrenberg"
             target="_blank"
             rel="noopener noreferrer"
+            className="social_link"
           >
             <FaXing />
           </a>
@@ -150,6 +194,7 @@ const Footer = () => (
             href="https://github.com/LarsBehrenberg"
             target="_blank"
             rel="noopener noreferrer"
+            className="social_link"
           >
             <FaGithub />
           </a>
@@ -158,6 +203,6 @@ const Footer = () => (
     </Container>
     <Background />
   </OuterContainer>
-);
+)
 
-export default Footer;
+export default Footer

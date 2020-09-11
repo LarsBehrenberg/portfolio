@@ -9,7 +9,14 @@ import { ThemeProvider } from 'emotion-theming'
 
 import { theme, reset } from '../styles'
 import i18n from '../../config/i18n'
-import { Header, Particles, SkipNavLink, Footer, Transition } from '.'
+import {
+  Header,
+  Particles,
+  SkipNavLink,
+  Footer,
+  Transition,
+  NavbarContainer,
+} from '.'
 
 import 'typeface-source-sans-pro'
 import 'typeface-nunito'
@@ -52,13 +59,14 @@ const Content = styled.div`
 
 const LocaleContext = React.createContext()
 
-const Layout = ({ children, pageContext: { locale = "en-us" }, location }) => (
+const Layout = ({ children, pageContext: { locale = 'en-us' }, location }) => (
   <LocaleContext.Provider value={{ locale, i18n, location }}>
     <ThemeProvider theme={theme}>
       <>
         <Global styles={globalStyle} />
         <SkipNavLink />
-        <Header lang={{ locale, i18n, location }} />
+        {/* <Header lang={{ locale, i18n, location }} /> */}
+        <NavbarContainer lang={{ locale, i18n, location }} />
         <Content>
           <Transition location={location}>
             <main>{children}</main>

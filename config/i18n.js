@@ -4,6 +4,7 @@ module.exports = {
   'en-us': {
     default: true,
     path: 'en',
+    name: 'English',
     locale: 'en-us',
     siteLanguage: 'en',
     ogLang: 'en_US',
@@ -24,6 +25,7 @@ module.exports = {
   'de-de': {
     default: false,
     path: 'de',
+    name: 'Deutsch',
     locale: 'de-de',
     siteLanguage: 'de',
     ogLang: 'de_DE',

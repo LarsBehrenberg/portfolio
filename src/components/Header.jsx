@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import Logo from '../../static/logos/logo_white.png'
 import LocalizedLink from './LocalizedLink'
 import { Link } from 'gatsby'
+import { GiWorld } from 'react-icons/gi'
 
 const SiteHeader = styled.header`
   background: transparent;
@@ -28,10 +29,11 @@ const HomeLink = styled(NavLink)`
   margin-left: 0;
 `
 
-const Menu = styled.p`
+const Menu = styled.div`
   text-align: center;
   line-height: 1.6em;
-
+  display: flex;
+  align-content: flex-end;
   a {
     margin-left: 2rem;
     text-decoration: none;
@@ -73,6 +75,11 @@ const LocaleSwitcher = styled.div`
   padding: 1rem; */
 `
 
+const LangSwitcher = styled(GiWorld)`
+  margin-left: 2rem;
+  margin-top: 0.3rem;
+`
+
 const Header = ({ lang }) => {
   const regex = /\/de\/|\/de|\//gi
 
@@ -94,6 +101,7 @@ const Header = ({ lang }) => {
           <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
             Get In Touch
           </a>
+          <LangSwitcher />
         </Menu>
 
         {/* <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">

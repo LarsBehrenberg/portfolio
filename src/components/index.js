@@ -11,6 +11,8 @@ import Testimonials from './Index/Testimonials'
 import WorksList from './WorksList'
 import Transition from './Transition'
 
+import NavbarContainer from './Menu'
+
 export {
   SEO,
   Particles,
@@ -23,4 +25,5 @@ export {
   Testimonials,
   WorksList,
   Transition,
+  NavbarContainer,
 }

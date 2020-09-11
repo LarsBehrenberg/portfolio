@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import LocalizedLink from '../../LocalizedLink'
 import Logo1 from '../../../../static/logos/logo_white.png'
-// import StyledMobileMenu from './MobileMenu'
+import StyledMobileMenu from './MobileMenu'
 
 const NavbarEl = styled.nav`
   max-width: 1300px;
@@ -20,6 +20,14 @@ const NavbarEl = styled.nav`
   }
 
   @media (min-width: 800px) {
+    & > div {
+      flex: 1 1 auto;
+    }
+
+    & a:first-of-type,
+    a:last-of-type {
+      flex: 0 0 100px;
+    }
     & > div:last-child  {
       margin-top: 3px;
       height: 25px;
@@ -74,12 +82,16 @@ const HireButton = styled.a`
       opacity: 1;
       right: -1.5rem;
     }
+
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
 `
 
 class Navbar extends Component {
   render() {
-    const { children, onMouseLeave } = this.props
+    const { children, onMouseLeave, lang } = this.props
     return (
       <NavbarEl onMouseLeave={onMouseLeave}>
         <LocalizedLink to="/">
@@ -89,7 +101,7 @@ class Navbar extends Component {
         <HireButton className="mailtoui" href="mailto:l.behrenberg@gmail.com">
           <div>
             <span>
-              Hire Me
+              {lang.i18n[lang.locale].hireMe}
               <svg
                 width="10"
                 height="10"
@@ -113,7 +125,7 @@ class Navbar extends Component {
             </span>
           </div>
         </HireButton>
-        {/* <StyledMobileMenu /> */}
+        <StyledMobileMenu lang={lang} />
       </NavbarEl>
     )
   }

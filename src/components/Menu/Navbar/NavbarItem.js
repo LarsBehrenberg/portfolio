@@ -98,13 +98,15 @@ export default class NavbarItem extends Component {
         onMouseEnter={this.props.onMouseEnter ? this.onMouseEnter : null}
         onFocus={this.props.onMouseEnter ? this.onMouseEnter : null}
       >
-        {title !== 'Get In Touch' && title !== 'Languages' ? (
+        {title !== 'Get In Touch' &&
+        title !== 'Kontakt' &&
+        title !== 'Languages' ? (
           <NavbarItemTitle to={link}>{title}</NavbarItemTitle>
         ) : title === 'Languages' ? (
           <LangSwitcher />
         ) : (
           <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
-            Get In Touch
+            {title}
           </a>
         )}
 

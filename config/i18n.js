@@ -1,4 +1,5 @@
 const website = require('./website')
+const Languages = require('../src/components/Menu/DropdownContents/Languages')
 
 module.exports = {
   'en-us': {
@@ -12,15 +13,30 @@ module.exports = {
     defaultTitleAlt: website.titleAlt,
     defaultDescription: website.description,
     headline: website.headline,
-    // category: 'Category',
-    // categories: 'Categories',
-    // was: 'was',
-    // were: 'were',
-    // tagged: 'tagged with',
-    // recent: 'Recent',
-    // projects: 'projects',
-    // allCategories: 'All categories',
-    // entries: 'entries',
+    hireMe: 'Hire Me',
+    imprint: 'Imprint',
+    privacy: 'Privacy Policy',
+    alwaysThere: 'Always Available For A Chat',
+    menu: [
+      { title: 'Home', link: '/' },
+      {
+        title: 'Latest Work',
+        link: '/latest-work',
+      },
+      {
+        title: 'About',
+        link: '/about',
+      },
+      {
+        title: 'Get In Touch',
+        link: '/',
+      },
+      {
+        title: 'Languages',
+        dropdown: Languages,
+        link: '/',
+      },
+    ],
   },
   'de-de': {
     default: false,
@@ -33,15 +49,30 @@ module.exports = {
     defaultTitleAlt: website.titleAlt,
     defaultDescription: 'Freiberuflicher Website Developer ',
     headline: 'Schreiben und Veröffentlichen von Lars Behrenberg',
-    // category: 'Kategorie',
-    // categories: 'Kategorien',
-    // was: 'wurde',
-    // were: 'wurden',
-    // tagged: 'markiert mit',
-    // recent: 'Neue',
-    // projects: 'Projekte',
-    // allCategories: 'Alle Kategorien',
-    // entries: 'Einträge',
+    hireMe: 'Erstgespräch',
+    imprint: 'Impressum',
+    privacy: 'Datenschutzerklärung',
+    alwaysThere: 'Jederzeit für Sie da',
+    menu: [
+      { title: 'Home', link: '/' },
+      {
+        title: 'Letzte Projekte',
+        link: '/latest-work',
+      },
+      {
+        title: 'Über Mich',
+        link: '/about',
+      },
+      {
+        title: 'Kontakt',
+        link: '/',
+      },
+      {
+        title: 'Languages',
+        dropdown: Languages,
+        link: '/',
+      },
+    ],
   },
   // 'jp-jp': {
   //   default: false,

@@ -146,7 +146,7 @@ const LinkContainer = styled.div`
   }
 `
 
-const Footer = () => (
+const Footer = ({ lang }) => (
   <OuterContainer>
     <Container>
       <AlwaysInTouch href="mailto:l.behrenberg@gmail.com" className="mailtoui">
@@ -164,13 +164,17 @@ const Footer = () => (
         </svg>
 
         <div>
-          <h4>Always Available For A Chat</h4>
+          <h4>{lang.i18n[lang.locale].alwaysThere}</h4>
           <h1>Lars Behrenberg</h1>
         </div>
       </AlwaysInTouch>
       <LinkContainer>
-        <LocalizedLink to="/imprint">Imprint</LocalizedLink>
-        <LocalizedLink to="/privacy">Privacy Policy</LocalizedLink>
+        <LocalizedLink to="/imprint">
+          {lang.i18n[lang.locale].imprint}
+        </LocalizedLink>
+        <LocalizedLink to="/privacy">
+          {lang.i18n[lang.locale].privacy}
+        </LocalizedLink>
       </LinkContainer>
       <IconContainer>
         <IconContext.Provider value={{ color: '#ffffff90', size: '1.4em' }}>

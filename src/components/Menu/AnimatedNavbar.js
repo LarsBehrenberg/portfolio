@@ -90,8 +90,8 @@ export default class AnimatedNavbar extends Component {
         spring={duration === 300 ? 'noWobble' : { stiffness: 10, damping: 10 }}
         style={{ width: '100%' }}
       >
-        <Navbar onMouseLeave={this.onMouseLeave}>
-          {navbarConfig.map((n, index) => {
+        <Navbar onMouseLeave={this.onMouseLeave} lang={this.props.lang}>
+          {this.props.lang.i18n[this.props.lang.locale].menu.map((n, index) => {
             return (
               <NavbarItem
                 key={n.title}

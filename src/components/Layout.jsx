@@ -72,7 +72,7 @@ const Layout = ({ children, pageContext: { locale = 'en-us' }, location }) => (
             <main>{children}</main>
           </Transition>
 
-          <Footer />
+          <Footer lang={{ locale, i18n, location }} />
         </Content>
         <Particles />
       </>

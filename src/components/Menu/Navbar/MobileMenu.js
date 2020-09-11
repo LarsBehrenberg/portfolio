@@ -1,21 +1,19 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { slide as BurgerMenu } from 'react-burger-menu'
+import LocalizedLink from '../../LocalizedLink'
 import { Link } from 'gatsby'
-import { MenuArrow } from 'components'
+import { LinkList, DropdownSection } from '../DropdownContents/Components'
 
 const MobileMenu = styled(BurgerMenu)`
   a {
     color: white;
     text-decoration: none;
+    transition: color ease-out 300ms;
   }
 
-  a:hover,
-  .active {
-    background: -webkit-linear-gradient(45deg, #ac7447, #f4c7a7);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  a:hover {
+    color: grey;
   }
 `
 
@@ -24,13 +22,13 @@ var styles = {
     position: 'relative',
     width: '30px',
     height: '25px',
-    margin: '5px 5px 0',
+    margin: '1.7rem 1rem 0',
   },
   bmBurgerBars: {
-    background: '-webkit-linear-gradient(45deg, #fff, #f4c7a7)',
+    background: '#fff',
   },
   bmBurgerBarsHover: {
-    background: '-webkit-linear-gradient(45deg, #ac7447, #f4c7a7)',
+    background: '#ffffff80',
   },
   bmCrossButton: {
     height: '24px',
@@ -45,7 +43,7 @@ var styles = {
     top: '0',
   },
   bmMenu: {
-    background: '#020305',
+    background: 'rgb(21,38,50)',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em',
   },
@@ -68,7 +66,9 @@ var styles = {
   },
 }
 
-const StyledMobileMenu = () => (
+const regex = /\/de\/|\/de|\//gi
+
+const StyledMobileMenu = ({ lang }) => (
   <MobileMenu
     styles={styles}
     pageWrapId={'page-wrap'}
@@ -78,21 +78,52 @@ const StyledMobileMenu = () => (
     right
     disableAutoFocus
   >
-    <Link to="/" activeClassName="active">
-      <MenuArrow /> Home
-    </Link>
-    <Link to="/vibrational-medicine" activeClassName="active">
-      <MenuArrow /> Vibrational Medicine
-    </Link>
-    <Link to="/for-all-creation" activeClassName="active">
-      <MenuArrow /> For All Creation
-    </Link>
-    <Link to="/blog" activeClassName="active">
-      <MenuArrow /> Blog
-    </Link>
-    <Link to="/contact" activeClassName="active">
-      <MenuArrow /> Contact
-    </Link>
+    {lang.i18n[lang.locale].menu.map(item => {
+      if (item.title === 'Get In Touch' && 'Kontakt') {
+        return (
+          <a
+            className="mailtoui"
+            href="mailto:l.behrenberg@gmail.com"
+            key="Get In Touch"
+          >
+            {item.title}
+          </a>
+        )
+      } else if (item.title === 'Languages') {
+        {
+          return (
+            <DropdownSection>
+              <LinkList>
+                {Object.values(lang.i18n).map(
+                  ({ path, locale, ogLang, name }) => {
+                    return (
+                      <li key={ogLang}>
+                        <Link
+                          hrefLang={locale}
+                          key={ogLang}
+                          to={`/${lang.location.pathname.replace(
+                            regex,
+                            path === 'en' ? '' : path + '/'
+                          )}`}
+                        >
+                          {path.toUpperCase()}{' '}
+                        </Link>
+                      </li>
+                    )
+                  }
+                )}
+              </LinkList>
+            </DropdownSection>
+          )
+        }
+      } else {
+        return (
+          <LocalizedLink to={item.link} key={item.title}>
+            {item.title}
+          </LocalizedLink>
+        )
+      }
+    })}
   </MobileMenu>
 )
 

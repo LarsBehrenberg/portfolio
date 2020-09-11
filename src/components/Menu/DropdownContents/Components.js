@@ -28,10 +28,25 @@ export const LinkList = styled.ul`
     padding: 0 0.5rem;
     list-style: none;
     position: relative;
-    border-right: 2px solid #fff;
+
+    a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      top: 0px;
+      height: auto;
+      right: -5px;
+      bottom: 0px;
+      left: auto;
+      border-right: 2px solid #fff;
+      transform: none;
+      background: none;
+    }
   }
 
-  li:last-of-type {
+  li:last-of-type,
+  li:last-of-type a::after {
     margin-left: 0;
     border-right: none;
   }

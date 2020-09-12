@@ -1,5 +1,4 @@
 const website = require('./website')
-const Languages = require('../src/components/Menu/DropdownContents/Languages')
 
 module.exports = {
   'en-us': {
@@ -33,7 +32,6 @@ module.exports = {
       },
       {
         title: 'Languages',
-        dropdown: Languages,
         link: '/',
       },
     ],
@@ -69,7 +67,6 @@ module.exports = {
       },
       {
         title: 'Languages',
-        dropdown: Languages,
         link: '/',
       },
     ],

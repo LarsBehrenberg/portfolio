@@ -99,7 +99,11 @@ export default class AnimatedNavbar extends Component {
                 link={n.link}
                 index={index}
                 onMouseEnter={
-                  n.dropdown ? this.onMouseEnter : this.onMouseLeave
+                  n.title === 'Languages'
+                    ? Languages
+                      ? this.onMouseEnter
+                      : this.onMouseLeave
+                    : null
                 }
               >
                 {currentIndex === index && (

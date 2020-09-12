@@ -2,6 +2,7 @@ import React from 'react'
 import { DropdownEl, DropdownSection, LinkList } from './Components'
 // import LocalizedLink from '../../LocalizedLink'
 import { Link } from 'gatsby'
+
 const Languages = ({ lang }) => {
   const regex = /\/de\/|\/de|\//gi
 

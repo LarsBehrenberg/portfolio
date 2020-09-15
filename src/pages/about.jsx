@@ -11,13 +11,25 @@ import SEO from '../components/SEO'
 
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 1100px;
-  padding: 1.45rem 1.0875rem;
+  max-width: 1150px;
+`
+
+const NameHeader = styled.h1`
+  font-size: 3rem;
+  font-weight: 400;
+`
+
+const Subtitle = styled.p`
+  margin-bottom: 0.7rem;
+  margin-left: 5px;
+  font-size: 1.3rem;
+  border-left: 2px solid white;
+  padding-left: 0.8rem;
 `
 
 const Image = styled.div`
   float: right;
-  margin: 0rem 0 0.5rem 1rem;
+  margin: 1rem 0 0.5rem 1rem;
 
   border-radius: 0.4rem;
   img {
@@ -53,7 +65,6 @@ const About = ({ data: { about }, pageContext: { locale }, location }) => {
     <>
       <SEO pathname={location.pathname} locale={locale} />
       <Container>
-        <h1>{about.data.title.text}</h1>
         <Image>
           <Img
             fluid={about.data.profile_image.localFile.childImageSharp.fluid}
@@ -92,6 +103,8 @@ const About = ({ data: { about }, pageContext: { locale }, location }) => {
             </IconContext.Provider>
           </IconContainer>
         </Image>
+        <Subtitle>{about.data.subtitle.text}</Subtitle>
+        <NameHeader>{about.data.title.text}</NameHeader>
         <div dangerouslySetInnerHTML={{ __html: about.data.body.html }} />
       </Container>
     </>
@@ -105,6 +118,9 @@ export const pageQuery = graphql`
     about: prismicAbout(lang: { eq: $locale }) {
       data {
         title {
+          text
+        }
+        subtitle {
           text
         }
         body {

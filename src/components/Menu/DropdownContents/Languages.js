@@ -4,7 +4,7 @@ import { DropdownEl, DropdownSection, LinkList } from './Components'
 import { Link } from 'gatsby'
 
 const Languages = ({ lang }) => {
-  const regex = /\/de\/|\/de|\//gi
+  const regex = /\/de\/|\/de|\/jp\/|\/jp|\//gi
 
   return (
     <DropdownEl>

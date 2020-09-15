@@ -23,10 +23,11 @@ const Container = styled.div`
   min-height: 300px;
 
   display: flex;
+  align-items: center;
 
   @media (max-width: 800px) {
     flex-direction: column;
-
+    margin-top: 5rem;
     div {
       width: 100%;
     }
@@ -36,7 +37,11 @@ const Container = styled.div`
 const Image = styled.div`
   background: grey;
   width: 50%;
-  max-height: 330px;
+  &,
+  img,
+  div {
+    max-height: 300px;
+  }
 
   @media (max-width: 800px) {
     height: 300px;
@@ -46,6 +51,7 @@ const Image = styled.div`
   .image {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
     border-radius: 0.4rem;
+    object-fit: contain;
   }
 `
 

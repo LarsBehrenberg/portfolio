@@ -92,7 +92,7 @@ const StyledMobileMenu = ({ lang }) => (
       } else if (item.title === 'Languages') {
         {
           return (
-            <DropdownSection>
+            <DropdownSection key="Languages">
               <LinkList>
                 {Object.values(lang.i18n).map(
                   ({ path, locale, ogLang, name }) => {

@@ -98,33 +98,6 @@ class Navbar extends Component {
           <img src={Logo1} alt="Logo" style={{ width: '60px' }} />
         </LocalizedLink>
         <NavbarList>{children}</NavbarList>
-        <HireButton className="mailtoui" href="mailto:l.behrenberg@gmail.com">
-          <div>
-            <span>
-              {lang.i18n[lang.locale].hireMe}
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ marginRight: '5px', display: 'inline-block' }}
-              >
-                <g clipPath="url(#clip0)">
-                  <path
-                    d="M15.2894 10.9901L6.6897 19.5895C6.14266 20.1368 5.25572 20.1368 4.70894 19.5895C4.16212 19.0427 4.16212 18.1558 4.70894 17.609L12.3183 9.99986L4.70917 2.39095C4.16234 1.84391 4.16234 0.957105 4.70917 0.410283C5.25599 -0.136761 6.14288 -0.136761 6.68992 0.410283L15.2896 9.00983C15.563 9.28337 15.6996 9.64151 15.6996 9.99981C15.6996 10.3583 15.5628 10.7167 15.2894 10.9901Z"
-                    fill="white"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0">
-                    <rect width="20" height="20" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </span>
-          </div>
-        </HireButton>
         <StyledMobileMenu lang={lang} />
       </NavbarEl>
     )

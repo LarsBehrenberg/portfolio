@@ -7,44 +7,27 @@ import SEO from '../components/SEO'
 
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 1100px;
-  padding: 1.45rem 1.0875rem;
+  max-width: 1150px;
+  padding: 0 1.0875rem;
 `
 
-const Imprint = ({ data: { about }, pageContext: { locale }, location }) => {
-  const lang = React.useContext(LocaleContext)
-  const i18n = lang.i18n[lang.locale]
-
-  return (
-    <>
-      <SEO pathname={location.pathname} locale={locale} />
-      <Container>
-        <div dangerouslySetInnerHTML={{ __html: about.data.body.html }} />
-      </Container>
-    </>
-  )
-}
+const Imprint = ({ data: { imprint }, pageContext: { locale }, location }) => (
+  <>
+    <SEO pathname={location.pathname} locale={locale} />
+    <Container>
+      <div dangerouslySetInnerHTML={{ __html: imprint.data.text.html }} />
+    </Container>
+  </>
+)
 
 export default Imprint
 
 export const pageQuery = graphql`
   query imprintQuery($locale: String!) {
-    about: prismicAbout(lang: { eq: $locale }) {
+    imprint: prismicImprint(lang: { eq: $locale }) {
       data {
-        title {
-          text
-        }
-        body {
+        text {
           html
-        }
-        profile_image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
         }
       }
     }

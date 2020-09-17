@@ -72,7 +72,7 @@ const Button = styled(Link)`
   margin: 0;
   overflow: visible;
   text-transform: none;
-  background-color: rgb(6, 82, 221);
+  background-color: rgb(21, 38, 50, 0.8);
   box-shadow: rgba(50, 50, 93, 0.11) 0px 4px 6px,
     rgba(0, 0, 0, 0.08) 0px 1px 3px;
   color: rgb(255, 255, 255);

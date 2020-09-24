@@ -16,10 +16,11 @@ const Languages = ({ lang }) => {
                 <Link
                   hrefLang={locale}
                   key={ogLang}
-                  to={`/${lang.location.pathname.replace(
-                    regex,
-                    path === 'en' ? '' : path + '/'
-                  )}`}
+                  to={`/${path === 'en' ? '' : path}`}
+                  // to={`/${lang.location.pathname.replace(
+                  //   regex,
+                  //   path === 'en' ? '' : path + '/'
+                  // )}`}
                 >
                   {path.toUpperCase()}{' '}
                 </Link>

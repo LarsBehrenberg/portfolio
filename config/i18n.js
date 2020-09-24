@@ -15,6 +15,7 @@ module.exports = {
     imprint: 'Imprint',
     privacy: 'Privacy Policy',
     alwaysThere: 'Always Available For A Chat',
+    myName: 'Lars Behrenberg',
     buttonone: 'Latest Work',
     buttontwo: 'Get In Touch',
     menu: [
@@ -51,6 +52,7 @@ module.exports = {
     imprint: 'Impressum',
     privacy: 'Datenschutzerklärung',
     alwaysThere: 'Jederzeit für Sie da',
+    myName: 'Lars Behrenberg',
     buttonone: 'Letzte Projekte',
     buttontwo: 'Kontakt',
     menu: [
@@ -84,9 +86,10 @@ module.exports = {
     defaultTitleAlt: website.titleAlt,
     defaultDescription: 'Freiberuflicher Website Developer ',
     headline: 'Schreiben und Veröffentlichen von Lars Behrenberg',
-    imprint: 'Impressum',
-    privacy: 'Datenschutzerklärung',
-    alwaysThere: 'Jederzeit für Sie da',
+    imprint: 'インプリント',
+    privacy: 'プライバシーポリシー',
+    alwaysThere: 'いつでもコンタクト',
+    myName: 'ラース　ベレンバーグ',
     buttonone: 'プロジェクト',
     buttontwo: '問い合わせ',
     menu: [

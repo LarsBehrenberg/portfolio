@@ -165,7 +165,7 @@ const Footer = ({ lang }) => (
 
         <div>
           <h4>{lang.i18n[lang.locale].alwaysThere}</h4>
-          <h1>Lars Behrenberg</h1>
+          <h1>{lang.i18n[lang.locale].myName}</h1>
         </div>
       </AlwaysInTouch>
       <LinkContainer>

@@ -162,7 +162,7 @@ export default class NavbarItem extends Component {
             </g>
           </svg>
         ) : (
-          <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
+          <a className="mailtoui" href="mailto:info@larsbehrenberg.com">
             {title}
           </a>
         )}

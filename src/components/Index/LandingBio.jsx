@@ -27,7 +27,7 @@ const LandingBio = ({ title, subtitle, intro, buttons }) => (
         <Button
           type="MailToUi"
           className="mailtoui"
-          href="mailto:l.behrenberg@gmail.com"
+          href="mailto:info@larsbehrenberg.com"
         >
           {buttons[1]}
         </Button>

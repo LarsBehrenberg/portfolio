@@ -83,7 +83,7 @@ const StyledMobileMenu = ({ lang }) => (
         return (
           <a
             className="mailtoui"
-            href="mailto:l.behrenberg@gmail.com"
+            href="mailto:info@larsbehrenberg.com"
             key="Get In Touch"
           >
             {item.title}

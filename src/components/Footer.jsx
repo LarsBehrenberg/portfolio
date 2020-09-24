@@ -149,7 +149,7 @@ const LinkContainer = styled.div`
 const Footer = ({ lang }) => (
   <OuterContainer>
     <Container>
-      <AlwaysInTouch href="mailto:l.behrenberg@gmail.com" className="mailtoui">
+      <AlwaysInTouch href="mailto:info@larsbehrenberg.com" className="mailtoui">
         <svg
           width="60"
           height="60"

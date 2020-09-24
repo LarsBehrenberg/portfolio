@@ -98,15 +98,11 @@ const Header = ({ lang }) => {
           <NavLink to="/latest-work">Latest Work</NavLink>
           {/* <NavLink to="/insights">Insights</NavLink> */}
           <NavLink to="/about">About</NavLink>
-          <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
+          <a className="mailtoui" href="mailto:info@larsbehrenberg.com">
             Get In Touch
           </a>
           <LangSwitcher />
         </Menu>
-
-        {/* <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
-        Hire Me
-      </a> */}
 
         <LocaleSwitcher data-name="locale-switcher">
           {Object.values(lang.i18n).map(({ path, locale, ogLang }) => (

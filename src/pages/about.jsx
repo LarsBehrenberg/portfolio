@@ -80,7 +80,7 @@ const About = ({ data: { about }, pageContext: { locale }, location }) => (
               <FaGithub />
             </a>
 
-            <a className="mailtoui" href="mailto:l.behrenberg@gmail.com">
+            <a className="mailtoui" href="mailto:info@larsbehrenberg.com">
               <AiOutlineMail />
             </a>
           </IconContext.Provider>

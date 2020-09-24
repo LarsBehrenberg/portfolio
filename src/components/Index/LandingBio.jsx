@@ -14,7 +14,7 @@ const Container = styled.div`
   max-width: 600px;
 `
 
-const LandingBio = ({ title, subtitle, intro }) => (
+const LandingBio = ({ title, subtitle, intro, buttons }) => (
   <OuterContainer>
     <Container>
       <Subtitle>{subtitle}</Subtitle>
@@ -22,14 +22,14 @@ const LandingBio = ({ title, subtitle, intro }) => (
       <div dangerouslySetInnerHTML={{ __html: intro }} />
       <ButtonContainer>
         <Button to="/latest-work" type="GatsbyLink">
-          Latest Work
+          {buttons[0]}
         </Button>
         <Button
           type="MailToUi"
           className="mailtoui"
           href="mailto:l.behrenberg@gmail.com"
         >
-          Get In Touch
+          {buttons[1]}
         </Button>
       </ButtonContainer>
     </Container>

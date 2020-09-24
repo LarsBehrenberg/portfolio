@@ -12,10 +12,11 @@ module.exports = {
     defaultTitleAlt: website.titleAlt,
     defaultDescription: website.description,
     headline: website.headline,
-    hireMe: 'Hire Me',
     imprint: 'Imprint',
     privacy: 'Privacy Policy',
     alwaysThere: 'Always Available For A Chat',
+    buttonone: 'Latest Work',
+    buttontwo: 'Get In Touch',
     menu: [
       { title: 'Home', link: '/' },
       {
@@ -47,10 +48,11 @@ module.exports = {
     defaultTitleAlt: website.titleAlt,
     defaultDescription: 'Freiberuflicher Website Developer ',
     headline: 'Schreiben und Veröffentlichen von Lars Behrenberg',
-    hireMe: 'Erstgespräch',
     imprint: 'Impressum',
     privacy: 'Datenschutzerklärung',
     alwaysThere: 'Jederzeit für Sie da',
+    buttonone: 'Letzte Projekte',
+    buttontwo: 'Kontakt',
     menu: [
       { title: 'Home', link: '/' },
       {
@@ -82,10 +84,11 @@ module.exports = {
     defaultTitleAlt: website.titleAlt,
     defaultDescription: 'Freiberuflicher Website Developer ',
     headline: 'Schreiben und Veröffentlichen von Lars Behrenberg',
-    hireMe: 'Erstgespräch',
     imprint: 'Impressum',
     privacy: 'Datenschutzerklärung',
     alwaysThere: 'Jederzeit für Sie da',
+    buttonone: 'プロジェクト',
+    buttontwo: '問い合わせ',
     menu: [
       { title: 'ホーム', link: '/' },
       {

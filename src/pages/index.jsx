@@ -11,7 +11,7 @@ import { LocaleContext } from '../components/Layout'
 
 const Index = ({ data: { homepage }, pageContext: { locale }, location }) => {
   const lang = React.useContext(LocaleContext)
-  const i18n = lang.i18n[lang.locale]
+  const { buttonone, buttontwo } = lang.i18n[lang.locale]
 
   // Fade out scroll button after scrolling down
   useEffect(() => {
@@ -41,6 +41,7 @@ const Index = ({ data: { homepage }, pageContext: { locale }, location }) => {
         title={homepage.data.title.text}
         subtitle={homepage.data.subtitle.text}
         intro={homepage.data.introduction_text.html}
+        buttons={[buttonone, buttontwo]}
       />
       <GoNextButton />
       <Testimonials

@@ -1,14 +1,10 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react'
+import MailtoUI from './node_modules/mailtoui/dist/mailtoui-min.js'
 
-// You can delete this file if you're not using it
+import LocaleWrap from './wrapPageElement'
 
-require("prism-themes/themes/prism-atom-dark.css");
-require("prismjs/plugins/line-numbers/prism-line-numbers.css");
+export const wrapPageElement = LocaleWrap
 
-exports.onInitialClientRender = () => {
-  require("typeface-nunito");
-};
+export const onRouteUpdate = () => {
+  MailtoUI.run()
+}

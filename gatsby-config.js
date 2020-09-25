@@ -1,84 +1,74 @@
+/* eslint-disable global-require */
+require('dotenv').config({
+  path: `.env`,
+})
+
+const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
+const prismicLinkResolver = require('./src/gatsby/linkResolver')
+
+const website = require('./config/website')
+
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
+
 module.exports = {
+  /* General Information */
+  pathPrefix: website.pathPrefix,
   siteMetadata: {
-    title: `Behrenberg`,
-    subtitle: `Webdesign & -development`,
-    description: `A personal website about webdeveloping and personal projects`,
-    author: `@larsbehrenberg`,
+    siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
+    pathPrefix,
+    banner: website.logo,
+    ogLanguage: website.ogLanguage,
+    author: website.author,
+    twitter: website.twitter,
+    facebook: website.facebook,
   },
+  /* Plugins */
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-catch-links',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-source-prismic',
       options: {
-        trackingId: 'UA-158747913-1',
+        repositoryName: 'larsbehrenberg',
+        accessToken: `${process.env.API_KEY}`,
+        // Get the correct URLs in blog posts
+        linkResolver: () => prismicLinkResolver,
+        // PrismJS highlighting for labels and slices
+        htmlSerializer: () => prismicHtmlSerializer,
+      },
+    },
+    'gatsby-plugin-lodash',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'config/typography.js',
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/src/content`,
+        trackingId: website.googleAnalyticsID,
       },
     },
+    'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-plugin-layout`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        component: require.resolve(`./src/layouts/index.js`),
+        name: website.title,
+        short_name: website.titleAlt,
+        description: website.description,
+        start_url: pathPrefix,
+        background_color: website.backgroundColor,
+        theme_color: website.themeColor,
+        display: 'standalone',
+        icon: website.favicon,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-emotion`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-reading-time`,
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              aliases: { sh: 'bash', js: 'javascript' },
-              showLineNumbers: true,
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: {
-          '/*': ['Strict-Transport-Security: max-age=63072000'],
-        }, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `larsbehrenberg`,
-        short_name: `behrenberg`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#ffffff`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
+    // Must be placed at the end
+    'gatsby-plugin-offline',
+    'gatsby-plugin-netlify',
   ],
-};
+}

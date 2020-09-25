@@ -1,78 +1,81 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const _ = require('lodash')
+const locales = require('./config/i18n')
+const {
+  replaceTrailing,
+  localizedSlug,
+  replaceBoth,
+  wrapper,
+} = require('./src/utils/gatsby-node-helpers')
 
-// You can delete this file if you're not using it
+// Take the pages from src/pages and generate pages for all locales, e.g. /index and /en/index
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
 
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
-
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    });
+  // Only create one 404 page at /404.html
+  if (page.path.includes('404')) {
+    return
   }
-};
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
-  const projectTemplate = path.resolve(`src/templates/project.js`);
-  return graphql(`
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              path
-              draft
-              date
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      return Promise.reject(result.errors);
-    }
-    result.data.allMarkdownRemark.edges
-      .filter(({ node }) => node.frontmatter.path.includes('blog'))
-      .forEach(({ node }) => {
-        createPage({
-          path: node.frontmatter.path,
-          component: blogPostTemplate,
-          slug: node.fields.slug,
-          context: {},
-        });
-      });
-    result.data.allMarkdownRemark.edges
-      .filter(({ node }) => node.frontmatter.path.includes('projects'))
-      .forEach(({ node }) => {
-        createPage({
-          path: node.frontmatter.path,
-          component: projectTemplate,
-          slug: node.fields.slug,
-          context: {},
-        });
-      });
-  });
-};
+  // First delete the pages so we can re-create them
+  deletePage(page)
+
+  Object.keys(locales).map((lang) => {
+    // Remove the trailing slash from the path, e.g. --> /categories
+    page.path = replaceTrailing(page.path)
+
+    // Remove the leading AND traling slash from path, e.g. --> categories
+    const name = replaceBoth(page.path)
+
+    // Create the "slugs" for the pages. Unless default language, add prefix àla "/en"
+    const localizedPath = locales[lang].default
+      ? page.path
+      : `${locales[lang].path}${page.path}`
+
+    return createPage({
+      ...page,
+      path: localizedPath,
+      context: {
+        locale: lang,
+        name,
+      },
+    })
+  })
+}
+
+// exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
+
+//   // const postTemplate = require.resolve('./src/templates/post.jsx')
+//   // const categoryTemplate = require.resolve('./src/templates/category.jsx')
+
+//   const result = await wrapper(
+//     graphql(`
+//       {
+//         posts: allPrismicPost(sort: { fields: [data___date], order: DESC }) {
+//           edges {
+//             node {
+//               id
+//               uid
+//               lang
+//             }
+//           }
+//         }
+//       }
+//     `)
+//   )
+
+//   const postsList = result.data.posts.edges
+
+//   // postsList.forEach(edge => {
+//   //   // The uid you assigned in Prismic is the slug!
+//   //   createPage({
+//   //     path: localizedSlug(edge.node),
+//   //     component: postTemplate,
+//   //     context: {
+//   //       // Pass the unique ID (uid) through context so the template can filter by it
+//   //       uid: edge.node.uid,
+//   //       locale: edge.node.lang,
+//   //     },
+//   //   })
+//   // })
+// }

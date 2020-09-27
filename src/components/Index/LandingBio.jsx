@@ -6,7 +6,7 @@ const OuterContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  min-height: 70vh;
   max-height: 700px;
 `
 
@@ -24,11 +24,7 @@ const LandingBio = ({ title, subtitle, intro, buttons }) => (
         <Button to="/latest-work" type="GatsbyLink">
           {buttons[0]}
         </Button>
-        <Button
-          type="MailToUi"
-          className="mailtoui"
-          href="mailto:info@larsbehrenberg.com"
-        >
+        <Button type="MailToUi" href="mailto:info@larsbehrenberg.com">
           {buttons[1]}
         </Button>
       </ButtonContainer>

@@ -1,8 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
-
-import { LocaleContext } from '../components/Layout'
 import SEO from '../components/SEO'
 
 const Container = styled.div`

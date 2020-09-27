@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 const LinkStyles = css`
@@ -95,12 +94,3 @@ const Button = ({ children, to, type = 'GatsbyLink' }) => {
 }
 
 export default Button
-
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(['primary', 'secondary']),
-}
-
-Button.defaultProps = {
-  type: 'default',
-}

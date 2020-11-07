@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
+import LocalizedLink from '../LocalizedLink'
 
 const Container = styled.div`
   max-width: 800px;
@@ -64,7 +65,7 @@ const Text = styled.div`
   }
 `
 
-const Button = styled(Link)`
+const Button = styled(LocalizedLink)`
   -webkit-font-smoothing: antialiased;
   box-sizing: inherit;
   font-family: inherit;

@@ -16,7 +16,10 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-content: flex-start;
-  gap: 1rem;
+
+  & > *:not(:last-of-type) {
+    margin-right: 1rem;
+  }
 `
 
 export { ButtonContainer, NameHeader, Subtitle }

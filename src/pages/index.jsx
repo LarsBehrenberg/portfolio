@@ -42,6 +42,7 @@ const Index = ({ data: { homepage }, pageContext: { locale }, location }) => {
         subtitle={homepage.data.subtitle.text}
         intro={homepage.data.introduction_text.html}
         buttons={[buttonone, buttontwo]}
+        images={homepage.data.images}
       />
       <GoNextButton />
       <Testimonials
@@ -69,6 +70,17 @@ export const pageQuery = graphql`
         }
         introduction_text {
           html
+        }
+        images {
+          image {
+            localFile {
+              childImageSharp {
+                fluid {
+                  originalImg
+                }
+              }
+            }
+          }
         }
         testimonials_title {
           text

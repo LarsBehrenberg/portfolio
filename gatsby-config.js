@@ -40,7 +40,12 @@ module.exports = {
     },
     'gatsby-plugin-lodash',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaultQuality: 90,
+      },
+    },
     {
       resolve: 'gatsby-plugin-typography',
       options: {

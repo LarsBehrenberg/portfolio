@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
+import { LocaleContext } from '../components/Layout'
+
+// Components
 import {
   LandingBio,
   SEO,
@@ -7,14 +10,16 @@ import {
   Testimonials,
   Skills,
 } from '../components'
-import { LocaleContext } from '../components/Layout'
+
+// Utils
+import { getRedirectLanguage } from '../utils/set-language'
 
 const Index = ({ data: { homepage }, pageContext: { locale }, location }) => {
   const lang = React.useContext(LocaleContext)
   const { buttonone, buttontwo } = lang.i18n[lang.locale]
 
-  // Fade out scroll button after scrolling down
   useEffect(() => {
+    // Fade out scroll button after scrolling down
     let prevScrollpos = window.pageYOffset
 
     window.onscroll = function () {
@@ -31,8 +36,18 @@ const Index = ({ data: { homepage }, pageContext: { locale }, location }) => {
       prevScrollpos = currentScrollPos
     }
 
+    // Redirect to correct language on page load
+    // if user doesnt have current session, then redirect to correct language
+    // otherwise dont do anything
+    if (!sessionStorage.getItem('loggedin')) {
+      sessionStorage.setItem('loggedin', true)
+      //redirect
+      const urlLang = getRedirectLanguage()
+      navigate(`/${urlLang}`, { replace: true })
+    }
+
     return
-  })
+  }, [])
 
   return (
     <>

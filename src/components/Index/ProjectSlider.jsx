@@ -206,9 +206,9 @@ const ProjectSlider = ({ images }) => {
         <div className="screen">
           <div className="slider-container">
             <Slider {...settings}>
-              {images.map(el => (
+              {images.map(img => (
                 <Img
-                  fluid={el.image.localFile.childImageSharp.fluid}
+                  fluid={img.image.localFile.childImageSharp.fluid}
                   style={{
                     width: '100%',
                     height: '100%',
@@ -216,6 +216,8 @@ const ProjectSlider = ({ images }) => {
                   }}
                   className="project-image"
                   objectFit="cover"
+                  alt={img.image.alt}
+                  key={img.image.alt}
                 />
               ))}
             </Slider>

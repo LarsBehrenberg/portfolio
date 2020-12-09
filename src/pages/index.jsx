@@ -73,10 +73,11 @@ export const pageQuery = graphql`
         }
         images {
           image {
+            alt
             localFile {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid_withWebp
+                fluid(maxWidth: 350, traceSVG: { color: "#152632" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
@@ -105,8 +106,8 @@ export const pageQuery = graphql`
             client_image {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid_withWebp
+                  fluid(maxWidth: 400, traceSVG: { color: "#152632" }) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
               }
@@ -125,8 +126,8 @@ export const pageQuery = graphql`
             skill_image {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid_withWebp
+                  fluid(maxWidth: 800, traceSVG: { color: "#152632" }) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
               }

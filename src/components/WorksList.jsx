@@ -6,19 +6,25 @@ const OuterContainer = styled.div`
   & > div:nth-of-type(2n-1) {
     flex-direction: row-reverse;
 
-    .work_description {
-      padding-left: 0;
-      padding-right: 3rem;
+    @media (min-width: 800px) {
+      .work_description {
+        padding-left: 0;
+        padding-right: 3rem;
+      }
     }
 
     @media (max-width: 800px) {
       flex-direction: column;
+      padding-top: 3rem;
     }
   }
 `
 
 const Container = styled.div`
-  margin-top: 8rem;
+  margin-top: 3rem;
+  @media (min-width: 800px) {
+    margin-top: 8rem;
+  }
   width: 100%;
   min-height: 300px;
 

@@ -17,7 +17,7 @@ module.exports = {
 
   twitter: '@codetraveling', // Twitter Username
   facebook: 'larsbehrenberg', // Facebook Site Name
-  googleAnalyticsID: 'UA-158747913-1',
+  googleAnalyticsID: 'G-SX9V7C8ZY0',
 
   skipNavId: 'reach-skip-nav', // ID for the "Skip to content" a11y feature
 }

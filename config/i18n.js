@@ -45,9 +45,10 @@ module.exports = {
     locale: 'de-de',
     siteLanguage: 'de',
     ogLang: 'de_DE',
-    defaultTitle: website.title,
-    defaultTitleAlt: website.titleAlt,
-    defaultDescription: 'Freiberuflicher Website Developer ',
+    defaultTitle: 'Lars Behrenberg | Freelance Webseiten Entwickler',
+    defaultTitleAlt: 'Lars Behrenberg | Freelance Webseiten Entwickler',
+    defaultDescription:
+      'Ihre Webseite ist die digitale Broschüre und potentielle digitale Fassade Ihres Geschäfts. Ich verhelfe Ihnen zu einer Full-Stack Webseite vom individuellen Design bis hin zu den passenden Funktionalitäten im Hintergrund der Webseite.',
     headline:
       'Platform-übergreifendes Design / Front-End Entwicklung / Back-End Entwicklung',
     imprint: 'Impressum',
@@ -83,9 +84,12 @@ module.exports = {
     locale: 'ja-jp',
     siteLanguage: 'ja',
     ogLang: 'ja_JP',
-    defaultTitle: website.title,
-    defaultTitleAlt: website.titleAlt,
-    defaultDescription: 'フリーランス　ウェブデベロッパー',
+    defaultTitle:
+      'ベレンバーグ・ラース | ユーザー重視のデザイン・フロント・エンド デベロップメント（Front-End Development）・バック エンド デベロップメント（Back-End Development）',
+    defaultTitleAlt:
+      'ベレンバーグ・ラース | ユーザー重視のデザイン・フロント・エンド デベロップメント（Front-End Development）・バック エンド デベロップメント（Back-End Development）',
+    defaultDescription:
+      'ウェブサイトとはデジタル化されたパンフレットであり、またあなたのビジネスのショーウインドーでもあります。世界に一つしかないオーダーメイドのウェブサイトを作ってみませんか？',
     headline:
       'ユーザー重視のデザイン・フロント・エンド デベロップメント（Front-End Development）・バック エンド デベロップメント（Back-End Development）',
     imprint: 'インプリント',

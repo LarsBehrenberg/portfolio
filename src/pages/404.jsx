@@ -10,11 +10,14 @@ const Container = styled.div`
   flex-direction: column;
 `
 
-const NotFound = () => (
-  <Container>
-    <h1>Page Not Found</h1>
-    <p>Oops, we couldn't find this page!</p>
-  </Container>
+const NotFound = ({ pageContext: { locale }, location }) => (
+  <>
+    <SEO pathname={location.pathname} locale={locale} />
+    <Container>
+      <h1>Page Not Found</h1>
+      <p>Oops, we couldn't find this page!</p>
+    </Container>
+  </>
 )
 
 export default NotFound

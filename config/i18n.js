@@ -48,7 +48,8 @@ module.exports = {
     defaultTitle: website.title,
     defaultTitleAlt: website.titleAlt,
     defaultDescription: 'Freiberuflicher Website Developer ',
-    headline: 'Schreiben und Veröffentlichen von Lars Behrenberg',
+    headline:
+      'Platform-übergreifendes Design / Front-End Entwicklung / Back-End Entwicklung',
     imprint: 'Impressum',
     privacy: 'Datenschutzerklärung',
     alwaysThere: 'Jederzeit für Sie da',
@@ -84,8 +85,9 @@ module.exports = {
     ogLang: 'ja_JP',
     defaultTitle: website.title,
     defaultTitleAlt: website.titleAlt,
-    defaultDescription: 'Freiberuflicher Website Developer ',
-    headline: 'Schreiben und Veröffentlichen von Lars Behrenberg',
+    defaultDescription: 'フリーランス　ウェブデベロッパー',
+    headline:
+      'ユーザー重視のデザイン・フロント・エンド デベロップメント（Front-End Development）・バック エンド デベロップメント（Back-End Development）',
     imprint: 'インプリント',
     privacy: 'プライバシーポリシー',
     alwaysThere: 'いつでもコンタクト',

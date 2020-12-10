@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import SEO from '../components/SEO'
 
 const Container = styled.div`
   min-height: 70vh;

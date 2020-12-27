@@ -12,6 +12,10 @@ const navbarConfig = [
     link: '/latest-work',
   },
   {
+    title: 'Blog',
+    link: 'https://blog.larsbehrenberg.com',
+  },
+  {
     title: 'About',
     link: '/about',
   },

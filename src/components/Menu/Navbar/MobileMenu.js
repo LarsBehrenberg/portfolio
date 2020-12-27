@@ -214,7 +214,16 @@ const StyledMobileMenu = ({ lang }) => (
           )
         }
       }
-      return (
+      return item.link == 'https://blog.larsbehrenberg.com' ? (
+        <a
+          key={item.title}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {item.title}
+        </a>
+      ) : (
         <LocalizedLink to={item.link} key={item.title}>
           {item.title}
         </LocalizedLink>

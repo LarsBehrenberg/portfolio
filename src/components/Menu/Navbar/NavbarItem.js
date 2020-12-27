@@ -106,7 +106,13 @@ export default class NavbarItem extends Component {
         title !== 'Kontakt' &&
         title !== '問い合わせ' &&
         title !== 'Languages' ? (
-          <NavbarItemTitle to={link}>{title}</NavbarItemTitle>
+          link == 'https://blog.larsbehrenberg.com' ? (
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              {title}
+            </a>
+          ) : (
+            <NavbarItemTitle to={link}>{title}</NavbarItemTitle>
+          )
         ) : title === 'Languages' ? (
           <svg
             version="1.1"

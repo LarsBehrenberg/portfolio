@@ -25,6 +25,10 @@ module.exports = {
         link: '/latest-work',
       },
       {
+        title: 'Blog',
+        link: 'https://blog.larsbehrenberg.com',
+      },
+      {
         title: 'About',
         link: '/about',
       },
@@ -62,6 +66,10 @@ module.exports = {
       {
         title: 'Letzte Projekte',
         link: '/latest-work',
+      },
+      {
+        title: 'Blog',
+        link: 'https://blog.larsbehrenberg.com',
       },
       {
         title: 'Über Mich',
@@ -103,6 +111,10 @@ module.exports = {
       {
         title: 'プロジェクト',
         link: '/latest-work',
+      },
+      {
+        title: 'ブログ',
+        link: 'https://blog.larsbehrenberg.com',
       },
       {
         title: '経歴',

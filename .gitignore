@@ -65,5 +65,8 @@ bundle-stats.json
 
 cypress/screenshots
 cypress/videos
+
 # Local Netlify folder
 .netlify
+
+.DS_Store

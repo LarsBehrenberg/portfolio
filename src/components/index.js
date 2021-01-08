@@ -13,6 +13,8 @@ import Transition from './Transition'
 
 import NavbarContainer from './Menu'
 
+import PostList from './Blog/PostList'
+
 export {
   SEO,
   Particles,
@@ -26,4 +28,5 @@ export {
   WorksList,
   Transition,
   NavbarContainer,
+  PostList,
 }

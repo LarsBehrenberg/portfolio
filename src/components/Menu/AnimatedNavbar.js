@@ -101,6 +101,10 @@ export default class AnimatedNavbar extends Component {
                 key={n.title}
                 title={n.title}
                 link={n.link}
+                currentLang={{
+                  locale: this.props.lang.locale,
+                  i18n: this.props.lang.i18n,
+                }}
                 index={index}
                 onMouseEnter={
                   n.title === 'Languages'

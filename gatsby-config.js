@@ -1,80 +1,62 @@
-/* eslint-disable global-require */
-require('dotenv').config({
-  path: `.env`,
-})
-
-const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
-const prismicLinkResolver = require('./src/gatsby/linkResolver')
-
-const website = require('./config/website')
-
-const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
-
 module.exports = {
-  /* General Information */
-  pathPrefix: website.pathPrefix,
   siteMetadata: {
-    siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
-    pathPrefix,
-    banner: website.logo,
-    ogLanguage: website.ogLanguage,
-    author: website.author,
-    twitter: website.twitter,
-    facebook: website.facebook,
+    pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
+    title: "Lars Behrenberg", // Navigation and Site Title
+    titleAlt: "LarsBehrenberg", // Title for JSONLD
+    description:
+      "Your website is the digital brochure and a potential storefront of your business. I create bespoke Fullstack websites from the front-end designs...",
+    url: "https://portfolio-new.netlify.app", // Domain of your site. No trailing slash!
+    siteUrl: "https://portfolio-new.netlify.app", // url + pathPrefix
+    siteLanguage: "en", // Language Tag on <html> element
+    logo: "/favicon.png", // Used for SEO
+    banner: "/seo-banner.png", // Banner for SEO
+    favicon: "static/favicon.png", // Used for manifest favicon generation
+    shortName: "behrenberg.", // shortname for manifest. MUST be shorter than 12 characters
+    author: "Lars", // Author for schemaORGJSONLD
+    themeColor: "#485EEE",
+    backgroundColor: "#ffffff",
+    twitter: "", // Twitter Username
+    adsenseId: "", //eg: ca-pub-7292810486004926
   },
-  /* Plugins */
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-catch-links',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-styled-components`,
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        repositoryName: 'larsbehrenberg',
-        accessToken: `${process.env.API_KEY}`,
-        // Get the correct URLs in blog posts
-        linkResolver: () => prismicLinkResolver,
-        // PrismJS highlighting for labels and slices
-        htmlSerializer: () => prismicHtmlSerializer,
+        name: `assets`,
+        path: `${__dirname}/src/assets/`,
       },
     },
-    'gatsby-plugin-lodash',
-    'gatsby-transformer-sharp',
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
-        defaultQuality: 90,
+        googleAnalytics: {
+          trackingId: "G-SX9V7C8ZY0",
+          // Setting this parameter is optional
+          anonymize: true,
+        },
+        // Defines the environments where the tracking should be available  - default is ["production"]
+        environments: ["production", "development"],
       },
     },
+    `gatsby-plugin-layouts`,
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: `gatsby-plugin-intl`,
       options: {
-        pathToConfigModule: 'config/typography.js',
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: [`en`, `ja`, `de`],
+        // language file path
+        defaultLanguage: `en`,
+        // option to redirect to `/en` when connecting `/`
+        redirect: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: website.googleAnalyticsID,
-      },
-    },
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: website.title,
-        short_name: website.titleAlt,
-        description: website.description,
-        start_url: pathPrefix,
-        background_color: website.backgroundColor,
-        theme_color: website.themeColor,
-        display: 'standalone',
-        icon: website.favicon,
-      },
-    },
-    // Must be placed at the end
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
   ],
-}
+};
